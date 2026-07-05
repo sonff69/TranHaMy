@@ -98,6 +98,29 @@
             transform: rotateY(180deg);
         }
 
+        /* Floating Pink Lilies Animation */
+        .floating-lily {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatLily 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatLily {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(40px, -30px) rotate(15deg) scale(1.05); }
+            100% { transform: translate(-20px, -60px) rotate(-10deg) scale(0.95); }
+        }
+
+        /* Rotation Animation for Music Icon */
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .music-playing {
+            animation: slowSpin 8s linear infinite;
+        }
+
         /* Cursor blinking for live doc edit simulation */
         @keyframes blink {
             50% { opacity: 0; }
@@ -112,6 +135,22 @@
 
     <!-- CANVAS CHẠY ĐỒNG THỜI HIỆU ỨNG DI CHUỘT VÀ HOA LY HỒNG BAY TỪ ĐÁY LÊN -->
     <canvas id="trail-canvas"></canvas>
+
+    <!-- TRÌNH PHÁT NHẠC NỀN HOẠT ĐỘNG HOÀN CHỈNH -->
+    <audio id="bg-music" src="https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3" loop preload="auto"></audio>
+
+    <!-- NÚT ĐIỀU KHIỂN NHẠC GẮN TRÊN HOA LY TRÒN XINH XẮN (Ở góc màn hình) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleMusic()" id="music-toggle-btn" class="w-14 h-14 rounded-full bg-white/80 backdrop-blur-md border-2 border-pink-300 flex items-center justify-center text-pink-500 shadow-lg hover:shadow-xl transition transform hover:scale-105 focus:outline-none">
+            <svg id="music-icon" class="w-8 h-8" viewBox="0 0 64 64" fill="currentColor">
+                <g fill="#FFB6C1" stroke="#FF69B4" stroke-width="1.5">
+                    <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
+                    <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
+                </g>
+                <circle cx="32" cy="32" r="3.5" fill="#FFA500" />
+            </svg>
+        </button>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="sticky top-4 z-50 mx-4 md:mx-12 my-4">
@@ -180,7 +219,7 @@
         <div class="text-center mb-16">
             <span class="text-5xl">⚜️</span>
             <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Góc Học Tập Nhỏ Xinh</h2>
-            <p class="text-slate-500 mt-2 font-semibold">Tụi mình cùng thử click, gạt thanh trượt hoặc lật các thẻ bài ở dưới để khám phá các dự án số của My nha!</p>
+            <p class="text-slate-500 mt-2 font-semibold">Tụi mình cùng trải nghiệm các tính năng cực kỳ sinh động trên từng thẻ bài tập nhé!</p>
             <div class="w-24 h-1 bg-pink-300 mx-auto mt-4 rounded-full mb-8"></div>
             
             <a href="https://drive.google.com/drive/folders/1rkEGjYES3nOkFqLbUlTKHeqPQdbmc1Jc?usp=drive_link" 
@@ -205,7 +244,7 @@
                     <p class="text-slate-500 text-sm font-semibold mb-6">Thử click tạo mới, xóa, đổi tên tệp tin để xem cách My lưu trữ an toàn nha.</p>
                     
                     <!-- BỘ GIẢ LẬP WINDOWS FILE EXPLORER HOÀN CHỈNH -->
-                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs font-mono border border-slate-700">
+                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs font-mono border border-slate-700 space-y-3">
                         <div class="flex justify-between items-center pb-2 border-b border-slate-700">
                             <span class="text-slate-400">MyPC &gt; ThucHanh_TranHaMy</span>
                             <div class="flex space-x-2">
@@ -289,7 +328,7 @@
                     <div id="quiz-playground" class="bg-slate-900 text-purple-200 p-4 rounded-2xl font-mono text-xs space-y-3 min-h-[160px] border border-slate-700">
                         <p class="text-slate-400" id="quiz-status">&gt; Nhấn nút ở trên để tạo câu hỏi ôn tập tự động...</p>
                         <div id="quiz-question-box" class="hidden space-y-2 text-white">
-                            <p class="font-bold text-yellow-300">Câu hỏi ôn tập: Khi bạn tự giác không xem tài liệu trong phòng thi, hành vi này thuộc khía cạnh triết học nào?</p>
+                            <p class="font-bold text-yellow-300">Câu hỏi ôn tập: Khi bạn tự giác không xem tài liệu trong phòng thi, hành vi này thuộc khái niệm triết học nào?</p>
                             <div class="grid grid-cols-2 gap-2 mt-2">
                                 <button onclick="checkQuizAnswer(false)" class="bg-slate-800 hover:bg-slate-700 p-2 rounded text-left border border-slate-700">A. Nhận thức luận</button>
                                 <button onclick="checkQuizAnswer(true)" class="bg-slate-800 hover:bg-slate-700 p-2 rounded text-left border border-slate-700">B. Đạo đức học</button>
@@ -454,7 +493,7 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 4 + 1.5;
+                this.size = Math.random() * 5 + 2;
                 this.speedX = Math.random() * 1.2 - 0.6;
                 this.speedY = Math.random() * 1.2 - 0.6;
                 this.color = `hsl(${Math.random() * 20 + 330}, 100%, 85%)`; // Soft pastel pink
@@ -502,10 +541,11 @@
                 this.speedY = -(Math.random() * 0.8 + 0.4); // Bay lên chậm rãi
                 this.swaySpeed = Math.random() * 0.02 + 0.005; // Tần số dao động sin
                 this.swayAmount = Math.random() * 30 + 10; // Biên độ dao động sang hai bên
+                this.opacityVal = Math.random() * 0.4 + 0.2; // random transparent opacity
+                this.colorIndex = Math.floor(Math.random() * 3); // 3 shades of pastel pink
+                this.decay = Math.random() * 0.015 + 0.01;
                 this.angle = Math.random() * Math.PI * 2;
                 this.rotationSpeed = Math.random() * 0.01 - 0.005;
-                this.baseOpacity = Math.random() * 0.45 + 0.15; // Giữ độ mờ ảo, không che lấp chữ
-                this.opacity = 0;
                 this.xOffset = Math.random() * 100;
             }
 
@@ -531,7 +571,7 @@
             }
 
             draw() {
-                const finalOpacity = this.opacity * this.baseOpacity;
+                const finalOpacity = this.opacity * this.opacityVal;
                 if (finalOpacity <= 0) return;
 
                 ctx.save();
@@ -539,9 +579,20 @@
                 ctx.translate(this.x, this.y);
                 ctx.rotate(this.angle);
 
-                // Vẽ cấu trúc hoa ly 6 cánh mộng mơ bằng Vector Canvas
-                ctx.fillStyle = "#FFC2D1"; // Hồng nhạt
-                ctx.strokeStyle = "#FF85A2"; // Viền hồng đậm mềm mại
+                // Vẽ hoa ly 6 cánh mộng mơ bằng Vector Canvas
+                // Thiết lập sắc màu hồng phấn dâu sữa ngẫu nhiên
+                let flowerColor = "#FFC2D1"; 
+                let strokeColor = "#FF85A2";
+                if (this.colorIndex === 1) {
+                    flowerColor = "#FFD1DC";
+                    strokeColor = "#FF69B4";
+                } else if (this.colorIndex === 2) {
+                    flowerColor = "#FFB6C1";
+                    strokeColor = "#FF1493";
+                }
+
+                ctx.fillStyle = flowerColor; 
+                ctx.strokeStyle = strokeColor;
                 ctx.lineWidth = 1;
 
                 for (let i = 0; i < 6; i++) {
@@ -575,7 +626,7 @@
             }
         }
 
-        // Khởi tạo quần thể hoa ly hồng (Duy trì khoảng 55 bông bay liên tục bao phủ toàn bộ nền)
+        // Khởi tạo quần thể hoa ly hồng bay từ đáy trang lên liên tục (Duy trì 55 bông)
         const lilyCount = 55;
         for (let i = 0; i < lilyCount; i++) {
             backgroundLilies.push(new FloatingLilyParticle());
@@ -610,12 +661,41 @@
         }
         animate();
 
-        // Mobile Menu trigger
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Trình phát nhạc nền & Tự động phát khi tương tác
+        const bgMusic = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        function playMusic() {
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicIcon.classList.add('music-playing');
+            }).catch(err => {
+                console.log("Trình duyệt tạm chặn tự động phát nhạc. Đợi người dùng tương tác...");
+            });
+        }
+
+        // Tự động phát mượt mà ngay khi người dùng click hoặc cuộn trang lần đầu
+        const enableAutoplay = () => {
+            if (!isPlaying) {
+                playMusic();
+            }
+            document.removeEventListener('click', enableAutoplay);
+            document.removeEventListener('scroll', enableAutoplay);
+        };
+
+        document.addEventListener('click', enableAutoplay);
+        document.addEventListener('scroll', enableAutoplay);
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                musicIcon.classList.remove('music-playing');
+            } else {
+                playMusic();
+            }
+        }
 
         // Bài 1: File Explorer Interactive actions (Rename, Delete, Restore)
         const fileNameSpan = document.getElementById('file-name-span');
