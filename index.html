@@ -15,10 +15,11 @@
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #FFFDE6;
+            /* Nền sao hồng pastel mộng mơ */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Cg fill='%23FFB3D1' fill-opacity='0.4'%3E%3Cpath d='M20,30 L21.5,34.5 L26,35 L21.5,35.5 L20,40 L18.5,35.5 L14,35 L18.5,34.5 Z'/%3E%3Cpath d='M80,85 L81.5,89.5 L86,90 L81.5,90.5 L80,95 L78.5,90.5 L74,90 L78.5,89.5 Z'/%3E%3Cpath d='M40,140 L41.5,144.5 L46,145 L41.5,145.5 L40,150 L38.5,145.5 L34,145 L38.5,144.5 Z'/%3E%3Cpath d='M100,10 L101.5,14.5 L106,15 L101.5,15.5 L100,20 L98.5,15.5 L94,15 L98.5,14.5 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
             color: #4A4A4A;
             overflow-x: hidden;
-            position: relative;
         }
 
         /* Bento Grid Glassmorphism */
@@ -52,15 +53,34 @@
             100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
 
-        /* Floating background canvases */
-        #bg-lily-canvas {
+        /* CSS Animation cho hoa ly trôi nổi cực mạnh */
+        @keyframes floatUpward {
+            0% {
+                transform: translateY(110vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: var(--op);
+            }
+            50% {
+                transform: translateY(50vh) translateX(var(--sway)) rotate(180deg);
+                opacity: var(--op);
+            }
+            90% {
+                opacity: var(--op);
+            }
+            100% {
+                transform: translateY(-15vh) translateX(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .balloon-lily {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            bottom: -100px;
             pointer-events: none;
-            z-index: 1; /* Nằm dưới bento card nhưng trên nền màu */
+            z-index: 1; /* Nằm dưới bento card nhưng trên hình nền */
+            animation: floatUpward linear forwards;
         }
 
         #trail-canvas {
@@ -70,7 +90,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 9999; /* Luôn trên cùng */
+            z-index: 9999;
         }
 
         /* Customized scrollbar */
@@ -113,17 +133,17 @@
 </head>
 <body class="min-h-screen flex flex-col pb-12 relative">
 
-    <!-- CANVAS NỀN HOA LY HỒNG LIÊN TỤC BAY LÊN NHƯ BONG BÓNG NƯỚC -->
-    <canvas id="bg-lily-canvas"></canvas>
-
-    <!-- CANVAS CHỈ LƯU HIỆU ỨNG DI CHUỘT MƯỢT MÀ, ĐÃ TẮT BẤM CHUỘT GÂY LAG -->
+    <!-- CANVAS CHỈ CHỨA HIỆU ỨNG DI CHUỘT MƯỢT MÀ, KHÔNG CÒN GÂY GIẬT LAG KHI CLICK -->
     <canvas id="trail-canvas"></canvas>
+
+    <!-- CONTAINER CHỨA HOA LY SINH RA LIÊN TỤC -->
+    <div id="lily-garden-bg" class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: 1;"></div>
 
     <!-- NAVBAR -->
     <nav class="sticky top-4 z-50 mx-4 md:mx-12 my-4">
         <div class="max-w-7xl mx-auto px-6 py-4 rounded-3xl bento-card flex justify-between items-center bg-white/70">
             <a href="#" class="flex items-center space-x-2">
-                <span class="text-2xl font-bold bg-gradient-to-r from-pink-400 via-rose-300 to-purple-400 bg-clip-text text-transparent">⚜️ Trần Hà My</span>
+                <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 via-rose-400 to-purple-500 bg-clip-text text-transparent">⚜️ Trần Hà My</span>
             </a>
             <div class="hidden md:flex items-center space-x-8 font-semibold text-lg">
                 <a href="#about" class="hover:text-pink-500 transition">Về mình</a>
@@ -153,7 +173,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="max-w-6xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+    <header class="max-w-6xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 relative">
         <div class="md:w-7/12 space-y-6 relative z-10 text-center md:text-left">
             <div class="inline-block bg-pink-100 text-pink-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
                 ⚜️ Ngôn ngữ & Văn hoá Nhật Bản - ULIS
@@ -163,7 +183,7 @@
                 mình là <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">Trần Hà My</span> ✨
             </h1>
             <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-xl">
-                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng bay bổng. My hi vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
+                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng. My hi vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
             </p>
             <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                 <a href="#portfolio" class="bg-gradient-to-r from-pink-300 via-rose-300 to-purple-400 hover:from-pink-400 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -182,7 +202,7 @@
     </header>
 
     <!-- COSMIC BENTO PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-16 max-w-7xl mx-auto px-6 relative z-10">
+    <section id="portfolio" class="py-16 max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <span class="text-5xl">⚜️</span>
             <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Vũ Trụ Sáng Tạo Tương Tác</h2>
@@ -205,7 +225,7 @@
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">📂</span>
-                        <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Kỹ năng số</span>
+                        <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Kỹ năng học tập</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 1: Giả lập File Explorer</h3>
                     <p class="text-slate-500 text-sm font-semibold mb-6">Thử click tạo mới, xóa, đổi tên tệp tin để xem cách My lưu trữ an toàn nha.</p>
@@ -240,7 +260,7 @@
             </div>
 
             <!-- Bài 2: Tìm kiếm & Đánh giá thông tin (Biểu đồ năng lực nguồn tài liệu) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[400px]">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">📊</span>
@@ -274,7 +294,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-emerald-600 font-bold mt-4">My luôn nói không với tài liệu không rõ nguồn gốc để duy trì bài viết chất lượng.</p>
+                <p class="text-xs text-emerald-600 mt-4 font-bold">My luôn nói không với tài liệu không rõ nguồn gốc để duy trì bài viết chất lượng.</p>
             </div>
 
             <!-- Bài 3: Thiết kế Prompt hiệu quả (Giả lập Prompt Playground kèm Game mini Quiz) -->
@@ -405,7 +425,7 @@
     </section>
 
     <!-- SECTION: TỔNG KẾT & ĐÁNH GIÁ (REFLECTION) -->
-    <section id="summary" class="py-16 max-w-5xl mx-auto px-6 relative z-10">
+    <section id="summary" class="py-16 max-w-5xl mx-auto px-6">
         <div class="bento-card p-12 rounded-[40px]">
             <div class="text-center mb-12">
                 <span class="text-5xl">💝</span>
@@ -419,16 +439,16 @@
                         <i class="fas fa-heart"></i> Niềm vui từ những điều nhỏ bé
                     </h3>
                     <p>
-                        Từ những bước làm quen với cách sắp xếp hệ thống tệp gọn gàng, cho đến việc tự thiết kế các prompt sâu sắc, hành trình công nghệ số này đã cho My rất nhiều trải nghiệm quý giá. Việc chủ động ứng dụng công nghệ giúp mình tự tin hơn hẳn khi học tập và kết nối số hằng ngày.
+                        Từ những bước đầu dọn dẹp hệ thống tệp tin sạch sẽ, cho đến việc tự thiết kế các prompt chuyên sâu, hành trình công nghệ số này đã cho My rất nhiều trải nghiệm đáng giá. Việc tự mình làm chủ và áp dụng công nghệ số một cách sáng tạo giúp My tự tin hơn rất nhiều trên giảng đường đại học.
                     </p>
                 </div>
 
                 <div class="space-y-4">
                     <h3 class="text-lg font-bold text-purple-500 flex items-center gap-2">
-                        <i class="fas fa-magic"></i> Độc bản trong kỷ nguyên số
+                        <i class="fas fa-magic"></i> Hãy cứ ước mơ và trải nghiệm
                     </h3>
                     <p>
-                        Công nghệ sẽ ngày càng phát triển, nhưng My tin rằng tư duy sắc bén, sự nhạy cảm ngôn ngữ và nỗ lực chân chính của tụi mình mới là điều làm nên sản phẩm độc bản. Cảm ơn các bạn thật nhiều vì đã ghé qua góc nhỏ lưu trữ của My nhé!
+                        AI có thể viết rất nhanh, tạo ra hình ảnh rất đẹp nhưng tư duy sắc bén và tâm hồn nhạy cảm của mỗi chúng mình mới là điều quý giá nhất. Cảm ơn các bạn thật nhiều vì đã ghé thăm và trải nghiệm chiếc portfolio ngọt ngào này của My nhé!
                     </p>
                 </div>
             </div>
@@ -436,111 +456,13 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="mt-auto py-8 text-center text-sm font-semibold text-slate-400 bg-white/40 relative z-10">
-        <p>© 2026 Trần Hà My - My Cozy Space. Được thiết kế với thật nhiều tình yêu và hoa ly trôi nổi ✨</p>
+    <footer class="mt-auto py-8 text-center text-sm font-semibold text-slate-400 bg-white/40">
+        <p>© 2026 Trần Hà My - My Cozy Space. Được thiết kế với thật nhiều tình yêu và hoa ly hồng trôi nổi ✨</p>
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC DEMOS -->
     <script>
-        // TRÌNH GIẢ LẬP VŨ TRỤ HOA LY HỒNG TRÔI NỔI NHƯ BONG BÓNG NƯỚC (HIỆU NĂNG CAO, KHÔNG GIẬT LAG)
-        const lilyCanvas = document.getElementById('bg-lily-canvas');
-        const lilyCtx = lilyCanvas.getContext('2d');
-        let backgroundLilies = [];
-
-        function resizeLilyCanvas() {
-            lilyCanvas.width = window.innerWidth;
-            lilyCanvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeLilyCanvas);
-        resizeLilyCanvas();
-
-        class FloatingLilyParticle {
-            constructor(initial = false) {
-                this.reset(initial);
-            }
-
-            reset(initial = false) {
-                this.size = Math.random() * 20 + 15; // Kích cỡ hoa từ 15px đến 35px
-                this.x = Math.random() * lilyCanvas.width;
-                // Nếu khởi tạo lúc đầu thì rải ngẫu nhiên độ cao, nếu không thì xuất phát từ dưới đáy canvas
-                this.y = initial ? (Math.random() * lilyCanvas.height) : (lilyCanvas.height + this.size + Math.random() * 100);
-                this.speedY = Math.random() * 0.7 + 0.3; // Tốc độ bay lên từ từ nhẹ nhàng
-                this.swaySpeed = Math.random() * 0.015 + 0.008;
-                this.swayWidth = Math.random() * 1.5 + 0.5;
-                this.swayOffset = Math.random() * Math.PI * 2;
-                this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() * 0.006 - 0.003);
-                this.opacity = Math.random() * 0.4 + 0.15; // Độ mờ sương khói mộng mơ
-                this.fadeThreshold = lilyCanvas.height * 0.15; // Bắt đầu mờ dần ở 15% phía trên cùng
-            }
-
-            update(time) {
-                this.y -= this.speedY;
-                this.x += Math.sin(time * this.swaySpeed + this.swayOffset) * this.swayWidth;
-                this.rotation += this.rotationSpeed;
-
-                // Mờ dần khi gần bay lên tới đỉnh trang
-                if (this.y < this.fadeThreshold) {
-                    this.opacity -= 0.004;
-                }
-
-                // Hồi sinh ở đáy khi bay hết hoặc mờ hẳn
-                if (this.y < -this.size || this.opacity <= 0) {
-                    this.reset(false);
-                }
-            }
-
-            draw() {
-                lilyCtx.save();
-                lilyCtx.globalAlpha = this.opacity;
-                lilyCtx.translate(this.x, this.y);
-                lilyCtx.rotate(this.rotation);
-
-                // Vẽ 6 cánh hoa ly hồng xếp chồng đối xứng
-                for (let i = 0; i < 6; i++) {
-                    lilyCtx.save();
-                    lilyCtx.rotate((i * 60) * Math.PI / 180);
-                    lilyCtx.beginPath();
-                    lilyCtx.moveTo(0, 0);
-                    // Đường cong vẽ cánh hoa
-                    lilyCtx.bezierCurveTo(-this.size * 0.25, -this.size * 0.25, -this.size * 0.3, -this.size * 0.8, 0, -this.size);
-                    lilyCtx.bezierCurveTo(this.size * 0.3, -this.size * 0.8, this.size * 0.25, -this.size * 0.25, 0, 0);
-                    lilyCtx.fillStyle = "#FFC2D1"; // Màu hồng phấn hoa ly
-                    lilyCtx.strokeStyle = "#FF85A2"; // Nét vẽ hồng đậm nhạt
-                    lilyCtx.lineWidth = 0.8;
-                    lilyCtx.fill();
-                    lilyCtx.stroke();
-                    lilyCtx.restore();
-                }
-
-                // Vẽ nhụy hoa cam nổi bật ở giữa
-                lilyCtx.beginPath();
-                lilyCtx.arc(0, 0, this.size * 0.1, 0, Math.PI * 2);
-                lilyCtx.fillStyle = "#FFA500";
-                lilyCtx.fill();
-
-                lilyCtx.restore();
-            }
-        }
-
-        // Tạo sẵn 45 bông hoa ly trôi nổi trải đều toàn trang
-        for (let i = 0; i < 45; i++) {
-            backgroundLilies.push(new FloatingLilyParticle(true));
-        }
-
-        let lastTime = 0;
-        function animateLilySky(timestamp) {
-            lilyCtx.clearRect(0, 0, lilyCanvas.width, lilyCanvas.height);
-            for (let i = 0; i < backgroundLilies.length; i++) {
-                backgroundLilies[i].update(timestamp);
-                backgroundLilies[i].draw();
-            }
-            requestAnimationFrame(animateLilySky);
-        }
-        requestAnimationFrame(animateLilySky);
-
-
-        // HOVER TRAIL MƯỢT MÀ, ĐÃ TẮT HOÀN TOÀN BẤM CHUỘT ĐỂ TRÁNH GIẬT LAG
+        // HOVER TRAIL MƯỢT MÀ, ĐÃ KHÓA HOÀN TOÀN TÍNH NĂNG CLICK GÂY GIẬT LAG
         const canvas = document.getElementById('trail-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -557,8 +479,8 @@
                 this.x = x;
                 this.y = y;
                 this.size = Math.random() * 5 + 2;
-                this.speedX = Math.random() * 1.5 - 0.75;
-                this.speedY = Math.random() * 1.5 - 0.75;
+                this.speedX = Math.random() * 1.2 - 0.6;
+                this.speedY = Math.random() * 1.2 - 0.6;
                 this.color = `hsl(${Math.random() * 30 + 330}, 100%, 85%)`; // soft pink sparkles
                 this.opacity = 0.8;
                 this.decay = Math.random() * 0.015 + 0.01;
@@ -605,6 +527,75 @@
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
+
+        // PHÁT TRIỂN TÍNH NĂNG TẠO HOA LY HỒNG TRÔI NỔI LIÊN TỤC KHÔNG GIỚI HẠN
+        const garden = document.getElementById('lily-garden-bg');
+        
+        const lilySVG = `
+        <svg width="100%" height="100%" viewBox="0 0 64 64">
+            <g fill="#FFC0CB" stroke="#FF69B4" stroke-width="1.2">
+                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
+                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
+            </g>
+            <circle cx="32" cy="32" r="3" fill="#FFA500" />
+        </svg>
+        `;
+
+        function spawnFloatingLily() {
+            const lily = document.createElement('div');
+            lily.className = 'balloon-lily';
+            lily.innerHTML = lilySVG;
+
+            const size = Math.random() * 40 + 20; // 20px to 60px
+            const sway = Math.random() * 120 - 60; // -60px to 60px sway
+            const op = Math.random() * 0.45 + 0.15; // 0.15 to 0.6 opacity
+            const duration = Math.random() * 12 + 10; // 10s to 22s travel speed
+
+            lily.style.width = `${size}px`;
+            lily.style.height = `${size}px`;
+            lily.style.left = `${Math.random() * 100}vw`;
+            lily.style.setProperty('--sway', `${sway}px`);
+            lily.style.setProperty('--op', op);
+            lily.style.animation = `floatUpward ${duration}s linear forwards`;
+
+            // Auto clean-up to prevent DOM clutter and lag
+            lily.addEventListener('animationend', () => {
+                lily.remove();
+            });
+
+            garden.appendChild(lily);
+        }
+
+        // Spawn lilies continuously
+        setInterval(spawnFloatingLily, 700);
+
+        // Pre-populate some lilies so the screen isn't empty initially
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => {
+                const lily = document.createElement('div');
+                lily.className = 'balloon-lily';
+                lily.innerHTML = lilySVG;
+                const size = Math.random() * 40 + 20;
+                const sway = Math.random() * 120 - 60;
+                const op = Math.random() * 0.45 + 0.15;
+                const duration = Math.random() * 12 + 10;
+                const currentY = Math.random() * 80 + 10; // start halfway up
+
+                lily.style.width = `${size}px`;
+                lily.style.height = `${size}px`;
+                lily.style.left = `${Math.random() * 100}vw`;
+                lily.style.setProperty('--sway', `${sway}px`);
+                lily.style.setProperty('--op', op);
+                lily.style.animation = `floatUpward ${duration}s linear forwards`;
+                // Adjust animation to start mid-screen
+                lily.style.animationDelay = `-${Math.random() * duration}s`;
+
+                lily.addEventListener('animationend', () => {
+                    lily.remove();
+                });
+                garden.appendChild(lily);
+            }, i * 200);
+        }
 
         // Mobile Menu trigger
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
