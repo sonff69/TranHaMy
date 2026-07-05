@@ -15,11 +15,10 @@
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #FFFDE6;
-            /* Nền sao hồng pastel mộng mơ */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Cg fill='%23FFB3D1' fill-opacity='0.4'%3E%3Cpath d='M20,30 L21.5,34.5 L26,35 L21.5,35.5 L20,40 L18.5,35.5 L14,35 L18.5,34.5 Z'/%3E%3Cpath d='M80,85 L81.5,89.5 L86,90 L81.5,90.5 L80,95 L78.5,90.5 L74,90 L78.5,89.5 Z'/%3E%3Cpath d='M40,140 L41.5,144.5 L46,145 L41.5,145.5 L40,150 L38.5,145.5 L34,145 L38.5,144.5 Z'/%3E%3Cpath d='M100,10 L101.5,14.5 L106,15 L101.5,15.5 L100,20 L98.5,15.5 L94,15 L98.5,14.5 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
             color: #4A4A4A;
             overflow-x: hidden;
+            position: relative;
         }
 
         /* Bento Grid Glassmorphism */
@@ -53,18 +52,15 @@
             100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
 
-        /* Floating Pink Lilies Animation */
-        .floating-lily {
-            position: absolute;
+        /* Floating background canvases */
+        #bg-lily-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
-            z-index: 1;
-            animation: floatLily 14s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatLily {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            50% { transform: translate(40px, -30px) rotate(15deg) scale(1.05); }
-            100% { transform: translate(-20px, -60px) rotate(-10deg) scale(0.95); }
+            z-index: 1; /* Nằm dưới bento card nhưng trên nền màu */
         }
 
         #trail-canvas {
@@ -74,7 +70,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 9999; /* Luôn trên cùng */
         }
 
         /* Customized scrollbar */
@@ -117,80 +113,11 @@
 </head>
 <body class="min-h-screen flex flex-col pb-12 relative">
 
+    <!-- CANVAS NỀN HOA LY HỒNG LIÊN TỤC BAY LÊN NHƯ BONG BÓNG NƯỚC -->
+    <canvas id="bg-lily-canvas"></canvas>
+
     <!-- CANVAS CHỈ LƯU HIỆU ỨNG DI CHUỘT MƯỢT MÀ, ĐÃ TẮT BẤM CHUỘT GÂY LAG -->
     <canvas id="trail-canvas"></canvas>
-
-    <!-- RẤT NHIỀU HOA LY MÀU HỒNG TRÔI NỔI TRÊN NỀN -->
-    <!-- Lily 1 -->
-    <div class="floating-lily top-12 left-8" style="animation-delay: 0s;">
-        <svg width="60" height="60" viewBox="0 0 64 64">
-            <g fill="#FFC0CB" stroke="#FF69B4" stroke-width="1.2">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
-            </g>
-            <circle cx="32" cy="32" r="3" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 2 -->
-    <div class="floating-lily top-1/4 right-16" style="animation-delay: -3s;">
-        <svg width="85" height="85" viewBox="0 0 64 64">
-            <g fill="#FFB6C1" stroke="#FF1493" stroke-width="1.2">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFC0CB" />
-            </g>
-            <circle cx="32" cy="32" r="3.5" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 3 -->
-    <div class="floating-lily bottom-40 left-12" style="animation-delay: -6s;">
-        <svg width="70" height="70" viewBox="0 0 64 64">
-            <g fill="#FFC0CB" stroke="#FF69B4" stroke-width="1.2">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
-            </g>
-            <circle cx="32" cy="32" r="3" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 4 -->
-    <div class="floating-lily top-2/3 right-1/3" style="animation-delay: -9s;">
-        <svg width="55" height="55" viewBox="0 0 64 64">
-            <g fill="#FFB6C1" stroke="#FF69B4" stroke-width="1.2">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFC0CB" />
-            </g>
-            <circle cx="32" cy="32" r="3.5" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 5 -->
-    <div class="floating-lily top-1/2 left-1/4" style="animation-delay: -2s; opacity: 0.6;">
-        <svg width="65" height="65" viewBox="0 0 64 64">
-            <g fill="#FFC0CB" stroke="#FF69B4" stroke-width="1">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
-            </g>
-            <circle cx="32" cy="32" r="3" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 6 -->
-    <div class="floating-lily bottom-12 right-12" style="animation-delay: -5s; opacity: 0.7;">
-        <svg width="80" height="80" viewBox="0 0 64 64">
-            <g fill="#FFB6C1" stroke="#FF1493" stroke-width="1.1">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFC0CB" />
-            </g>
-            <circle cx="32" cy="32" r="4" fill="#FFA500" />
-        </svg>
-    </div>
-    <!-- Lily 7 -->
-    <div class="floating-lily top-8 right-1/4" style="animation-delay: -11s; opacity: 0.5;">
-        <svg width="50" height="50" viewBox="0 0 64 64">
-            <g fill="#FFC0CB" stroke="#FF69B4" stroke-width="1">
-                <path d="M32 4 C35 18, 45 28, 60 32 C45 36, 35 46, 32 60 C29 46, 19 36, 4 32 C19 28, 29 18, 32 4 Z" />
-                <path d="M32 12 C34 22, 42 30, 52 32 C42 34, 34 42, 32 52 C30 42, 22 34, 12 32 C22 30, 30 22, 32 12 Z" transform="rotate(45 32 32)" fill="#FFD1DC" />
-            </g>
-            <circle cx="32" cy="32" r="3" fill="#FFA500" />
-        </svg>
-    </div>
 
     <!-- NAVBAR -->
     <nav class="sticky top-4 z-50 mx-4 md:mx-12 my-4">
@@ -226,7 +153,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="max-w-6xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 relative">
+    <header class="max-w-6xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
         <div class="md:w-7/12 space-y-6 relative z-10 text-center md:text-left">
             <div class="inline-block bg-pink-100 text-pink-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
                 ⚜️ Ngôn ngữ & Văn hoá Nhật Bản - ULIS
@@ -236,7 +163,7 @@
                 mình là <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">Trần Hà My</span> ✨
             </h1>
             <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-xl">
-                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng. My hi vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
+                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng bay bổng. My hi vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
             </p>
             <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                 <a href="#portfolio" class="bg-gradient-to-r from-pink-300 via-rose-300 to-purple-400 hover:from-pink-400 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -255,10 +182,10 @@
     </header>
 
     <!-- COSMIC BENTO PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-16 max-w-7xl mx-auto px-6">
+    <section id="portfolio" class="py-16 max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
             <span class="text-5xl">⚜️</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Góc Học Tập Nhỏ Xinh</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Vũ Trụ Sáng Tạo Tương Tác</h2>
             <p class="text-slate-500 mt-2 font-semibold">Tụi mình cùng trải nghiệm các tính năng cực kỳ sinh động trên từng thẻ bài tập nhé!</p>
             <div class="w-24 h-1 bg-pink-300 mx-auto mt-4 rounded-full mb-8"></div>
             
@@ -280,201 +207,205 @@
                         <span class="text-3xl">📂</span>
                         <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Kỹ năng số</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 1: Quản lý thư mục mượt mà</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Giả lập cây thư mục học tập chuẩn hóa trên Windows File Explorer của Trần Hà My.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 1: Giả lập File Explorer</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-6">Thử click tạo mới, xóa, đổi tên tệp tin để xem cách My lưu trữ an toàn nha.</p>
                     
-                    <!-- BỘ TƯƠNG TÁC GIẢ LẬP FILE EXPLORER -->
-                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs font-mono border border-slate-700">
-                        <div class="flex items-center space-x-2 pb-2 border-b border-slate-700 mb-2">
-                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                            <span class="text-slate-400 pl-2">This PC &gt; ThucHanh_TranHaMy</span>
+                    <!-- BỘ GIẢ LẬP WINDOWS FILE EXPLORER HOÀN CHỈNH -->
+                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs font-mono border border-slate-700 space-y-3">
+                        <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+                            <span class="text-slate-400">MyPC &gt; ThucHanh_TranHaMy</span>
+                            <div class="flex space-x-2">
+                                <button onclick="renameFileDemo()" class="bg-pink-600 hover:bg-pink-700 text-white px-2 py-1 rounded text-[10px]">Đổi tên</button>
+                                <button onclick="deleteFileDemo()" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-[10px]">Xóa</button>
+                                <button onclick="restoreFileDemo()" class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded text-[10px]">Phục hồi</button>
+                            </div>
                         </div>
                         <div class="space-y-2">
-                            <div class="cursor-pointer hover:bg-slate-800 p-1.5 rounded flex items-center justify-between" onclick="toggleExplorerFolder()">
-                                <span>📁 ThucHanh_TranHaMy</span>
-                                <span class="text-[10px] text-pink-300">Click to Expand</span>
+                            <div class="flex items-center space-x-2 text-yellow-300">
+                                <span>📁</span> <strong>ThucHanh_TranHaMy</strong>
                             </div>
-                            <div id="explorer-subfolders" class="pl-4 border-l border-dashed border-slate-700 space-y-2 hidden">
-                                <div class="cursor-pointer hover:bg-slate-800 p-1 rounded" onclick="alert('Thư mục lưu trữ tệp chuẩn hóa DiChuyen.txt và GhiChuQuanTrong.txt')">📁 TaiLieu</div>
-                                <div class="hover:bg-slate-800 p-1 rounded flex justify-between">
-                                    <span>📄 GhiChuQuanTrong.txt</span>
-                                    <span class="text-slate-500">0 KB</span>
+                            <div class="pl-4 border-l border-dashed border-slate-600 space-y-2">
+                                <div class="flex items-center space-x-2 text-yellow-200">
+                                    <span>📁</span> <span>TaiLieu</span>
+                                </div>
+                                <div id="explorer-file" class="flex justify-between items-center bg-slate-800 p-1.5 rounded transition">
+                                    <span id="file-name-span">📄 GhiChuQuanTrong.txt</span>
+                                    <span class="text-slate-400" id="file-status">Sẵn sàng</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-slate-400 mt-4">Kéo thả, đổi tên chuẩn hóa giúp quản lý hiệu quả học tập không thất lạc.</p>
+                <p class="text-xs text-slate-400 mt-4">Kỹ năng quản trị file khoa học giúp My lưu trữ giáo trình, bài tập tiếng Nhật hoàn toàn ngăn nắp.</p>
             </div>
 
-            <!-- Bài 2: Tìm kiếm & Đánh giá thông tin (Bảng điểm tương tác) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[400px]">
-                <div>
-                    <div class="flex justify-between items-start">
-                        <span class="text-3xl">🔍</span>
-                        <span class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Nghiên cứu học thuật</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 2: Đánh giá độ tin cậy thông tin</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-4">Click vào các tài liệu để phân tích điểm số các tiêu chí học thuật khác nhau.</p>
-                    
-                    <!-- BỘ TƯƠNG TÁC ĐÁNH GIÁ NGUỒN TÀI LIỆU -->
-                    <div class="grid grid-cols-3 gap-2 mb-4">
-                        <button onclick="showSourceEval('scholarly')" class="source-btn py-2 px-1 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-xs font-bold border border-emerald-200 transition">Holmes (2019)</button>
-                        <button onclick="showSourceEval('open')" class="source-btn py-2 px-1 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-xs font-bold border border-emerald-200 transition">UNESCO (2021)</button>
-                        <button onclick="showSourceEval('blog')" class="source-btn py-2 px-1 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-xs font-bold border border-emerald-200 transition">Blog MIT</button>
-                    </div>
-
-                    <div id="source-eval-panel" class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200 text-xs space-y-2">
-                        <p class="font-bold text-emerald-800" id="eval-title">Vui lòng chọn một nguồn để xem chi tiết</p>
-                        <div class="space-y-1">
-                            <div class="flex justify-between"><span>Uy tín tác giả:</span> <span id="val-author">-</span></div>
-                            <div class="flex justify-between"><span>Uy tín nhà xuất bản:</span> <span id="val-publisher">-</span></div>
-                            <div class="flex justify-between"><span>Độ tin cậy phương pháp:</span> <span id="val-method">-</span></div>
-                            <div class="flex justify-between"><span>Xếp hạng độ tin cậy chung:</span> <span id="val-overall" class="text-yellow-600 font-bold">-</span></div>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-xs text-emerald-600 mt-4 font-bold">Chỉ sử dụng tài liệu khoa học đáng tin cậy trích xuất qua Google Scholar, Springer, Elsevier.</p>
-            </div>
-
-            <!-- Bài 3: Thiết kế Prompt hiệu quả (Giả lập Prompt Playground) -->
-            <div class="bento-card md:col-span-7 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
-                <div>
-                    <div class="flex justify-between items-start">
-                        <span class="text-3xl">🤖</span>
-                        <span class="text-xs font-bold text-purple-500 uppercase tracking-widest">Kỹ thuật AI</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 3: Trình giả lập Prompt Playground</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Chọn cấp độ để AI mô phỏng cách hoàn thành tác vụ tóm tắt bài viết học thuật.</p>
-                    
-                    <!-- BỘ GIẢ LẬP PROMPT PLAYGROUND -->
-                    <div class="flex space-x-2 mb-4">
-                        <button onclick="runPromptDemo('basic')" class="flex-1 py-2 px-3 text-xs font-bold bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-full transition">1. Cơ bản</button>
-                        <button onclick="runPromptDemo('improved')" class="flex-1 py-2 px-3 text-xs font-bold bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-full transition">2. Cải tiến</button>
-                        <button onclick="runPromptDemo('advanced')" class="flex-1 py-2 px-3 text-xs font-bold bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-full transition">3. Nâng cao</button>
-                    </div>
-
-                    <div class="bg-slate-900 text-purple-200 p-4 rounded-2xl font-mono text-xs space-y-2 h-40 overflow-y-auto border border-slate-700">
-                        <p class="text-slate-400" id="prompt-input-show">&gt; Chọn một cấp độ ở trên để nạp Prompt...</p>
-                        <p class="text-white font-bold" id="prompt-output-show"></p>
-                    </div>
-                </div>
-                <p class="text-xs text-purple-600 font-bold mt-4">Kỹ thuật áp dụng: Role Prompting, Structured Prompting, Context Prompting.</p>
-            </div>
-
-            <!-- Bài 4: Hợp tác trực tuyến (Giả lập Kanban Trello) -->
-            <div class="bento-card md:col-span-5 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
+            <!-- Bài 2: Tìm kiếm & Đánh giá thông tin (Biểu đồ năng lực nguồn tài liệu) -->
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">📊</span>
-                        <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest">Cộng tác dự án</span>
+                        <span class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Nghiên cứu học thuật</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 4: Bảng Trello Kanban tương tác</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Click vào nhiệm vụ của Trần Hà My để thay đổi trạng thái tiến độ làm việc nhóm.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 2: Thước đo độ tin cậy</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-4">Click vào các bài báo học thuật để kiểm tra xem điểm số độ tin cậy thay đổi như thế nào nhé.</p>
                     
-                    <!-- KANBAN BOARD INTERACTION -->
-                    <div class="grid grid-cols-3 gap-2 text-[10px] font-bold">
-                        <div class="bg-red-50 p-2 rounded-xl border border-red-100">
-                            <span class="text-red-500">📌 To Do</span>
-                            <div id="todo-column" class="space-y-1.5 mt-2 min-h-[80px]">
-                                <!-- Trống -->
+                    <!-- BỘ SO SÁNH BIỂU ĐỒ BẰNG SVG & CSS DYNAMIC BARS -->
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <button onclick="updateRadarChart('scholarly')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Holmes (2019)</button>
+                        <button onclick="updateRadarChart('open')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">UNESCO (2021)</button>
+                        <button onclick="updateRadarChart('blog')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Blog MIT</button>
+                    </div>
+
+                    <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200 text-xs space-y-3">
+                        <p class="font-bold text-emerald-800" id="radar-title">Đang chọn: Holmes (2019) - AI in Education</p>
+                        <div class="space-y-2">
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Học thuật tác giả:</span> <span id="bar-val-1">95%</span></div>
+                                <div class="w-full bg-emerald-100 h-2 rounded-full"><div id="bar-fill-1" class="bg-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 95%;"></div></div>
                             </div>
-                        </div>
-                        <div class="bg-yellow-50 p-2 rounded-xl border border-yellow-100">
-                            <span class="text-yellow-600">⚡ Doing</span>
-                            <div id="doing-column" class="space-y-1.5 mt-2 min-h-[80px]">
-                                <!-- Trống -->
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Nhà xuất bản uy tín:</span> <span id="bar-val-2">90%</span></div>
+                                <div class="w-full bg-emerald-100 h-2 rounded-full"><div id="bar-fill-2" class="bg-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 90%;"></div></div>
                             </div>
-                        </div>
-                        <div class="bg-green-50 p-2 rounded-xl border border-green-100">
-                            <span class="text-green-500">✔️ Xong rồi</span>
-                            <div id="done-column" class="space-y-1.5 mt-2 min-h-[80px]">
-                                <div onclick="moveTrelloCard(this)" id="trello-card" class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:bg-pink-50 transition">
-                                    <p class="text-slate-800">Soạn báo cáo nhóm</p>
-                                    <span class="text-[8px] bg-pink-100 text-pink-600 px-1 py-0.2 rounded mt-1 inline-block">Hà My</span>
-                                </div>
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Phương pháp nghiên cứu:</span> <span id="bar-val-3">95%</span></div>
+                                <div class="w-full bg-emerald-100 h-2 rounded-full"><div id="bar-fill-3" class="bg-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 95%;"></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-[10px] text-slate-400 mt-4">Phối hợp nhịp nhàng qua Google Drive, Google Meet và Docs giúp tụi mình hoàn thành dự án rất đúng hạn.</p>
+                <p class="text-xs text-emerald-600 font-bold mt-4">My luôn nói không với tài liệu không rõ nguồn gốc để duy trì bài viết chất lượng.</p>
             </div>
 
-            <!-- Bài 5: Sử dụng AI hỗ trợ sáng tạo nội dung (Tương tác slider so sánh) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
+            <!-- Bài 3: Thiết kế Prompt hiệu quả (Giả lập Prompt Playground kèm Game mini Quiz) -->
+            <div class="bento-card md:col-span-7 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
                 <div>
                     <div class="flex justify-between items-start">
-                        <span class="text-3xl">🎨</span>
+                        <span class="text-3xl">💬</span>
+                        <span class="text-xs font-bold text-purple-500 uppercase tracking-widest">Kỹ thuật AI</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 3: Trình tạo câu hỏi tương tác</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-6">Nạp prompt "Nâng cao" để AI tạo bộ câu hỏi triết học thực tế và thử chọn đáp án đúng xem sao nha!</p>
+                    
+                    <div class="flex space-x-2 mb-4">
+                        <button onclick="runAdvancedPromptQuiz()" class="flex-1 py-2 px-3 text-xs font-bold bg-purple-50 hover:bg-purple-100 border border-purple-300 rounded-full text-purple-700 transition">🤖 Nạp Prompt & Tạo câu hỏi</button>
+                    </div>
+
+                    <!-- VÙNG HIỂN THỊ CÂU HỎI THI THỬ -->
+                    <div id="quiz-playground" class="bg-slate-900 text-purple-200 p-4 rounded-2xl font-mono text-xs space-y-3 min-h-[160px] border border-slate-700">
+                        <p class="text-slate-400" id="quiz-status">&gt; Nhấn nút ở trên để tạo câu hỏi ôn tập tự động...</p>
+                        <div id="quiz-question-box" class="hidden space-y-2 text-white">
+                            <p class="font-bold text-yellow-300">Câu hỏi ôn tập: Khi bạn tự giác không xem tài liệu trong phòng thi, hành vi này thuộc khía cạnh triết học nào?</p>
+                            <div class="grid grid-cols-2 gap-2 mt-2">
+                                <button onclick="checkQuizAnswer(false)" class="bg-slate-800 hover:bg-slate-700 p-2 rounded text-left border border-slate-700">A. Nhận thức luận</button>
+                                <button onclick="checkQuizAnswer(true)" class="bg-slate-800 hover:bg-slate-700 p-2 rounded text-left border border-slate-700">B. Đạo đức học</button>
+                            </div>
+                            <p id="quiz-feedback" class="text-xs font-bold pt-2"></p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-purple-600 font-bold mt-4">Kỹ năng viết prompt chuẩn chỉnh giúp My tự sinh đề ôn tập tiếng Nhật cực kỳ nhịp nhàng.</p>
+            </div>
+
+            <!-- Bài 4: Hợp tác trực tuyến (Kanban Trello & Live Edit Simulation) -->
+            <div class="bento-card md:col-span-5 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-3xl">👥</span>
+                        <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest">Cộng tác trực tuyến</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 4: Viết bài chung thời gian thực</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-6">Mô phỏng chỉnh sửa đồng thời của nhóm 28 trên Google Docs. Xem các con trỏ đang soạn thảo nhé!</p>
+                    
+                    <!-- MÔ PHỎNG GOOGLE DOCS LIVE-EDITING -->
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 text-xs space-y-3 font-medium shadow-inner relative">
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-100 text-[10px] text-slate-400">
+                            <span>📄 Báo_cáo_nhóm_28_V1.docx</span>
+                            <span class="text-green-500 font-bold">● 3 Người đang online</span>
+                        </div>
+                        <div class="space-y-2 leading-relaxed text-slate-700 min-h-[100px]">
+                            <p>Đề tài: Tác động của AI đối với việc học của sinh viên trường ULIS.</p>
+                            <p class="relative">
+                                Theo báo cáo nghiên cứu học thuật của nhóm, 
+                                <span class="bg-pink-100 text-pink-700 px-1 rounded relative">
+                                    My đang viết...
+                                    <span class="absolute -top-3 left-0 bg-pink-500 text-white text-[8px] px-1 rounded">My</span>
+                                </span> 
+                                việc ứng dụng công nghệ số hợp lý giúp nâng cao 60% động lực tự học tiếng Nhật.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 mt-4">Hợp tác trực tuyến qua Google Drive, Google Meet và Docs giúp bài thảo luận nhóm luôn nhất quán.</p>
+            </div>
+
+            <!-- Bài 5: Sử dụng AI sáng tạo nội dung (Slide Deck Carousel & Custom Toggle) -->
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-3xl">🎠</span>
                         <span class="text-xs font-bold text-rose-500 uppercase tracking-widest">Sáng tạo nội dung</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 5: Sáng tác cùng người bạn AI</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Khi thiết kế bài thuyết trình tiếng Nhật, My kết hợp ý tưởng của mình và AI. Thử gạt thanh trượt để xem phân bổ đóng góp nhé.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 5: Trình chiếu Slide tiếng Nhật</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-4">Click nút để gạt so sánh giữa phác thảo thô của AI và bản hoàn thiện mộng mơ của My nha.</p>
                     
-                    <!-- BỘ SO SÁNH TRỰC QUAN AI VS NGƯỜI -->
-                    <div class="bg-rose-50/50 p-4 rounded-2xl border border-rose-100 text-xs space-y-4">
-                        <div class="flex justify-between items-center font-bold">
-                            <span class="text-rose-500">AI hỗ trợ (40%)</span>
-                            <span class="text-purple-600">My sáng tạo (60%)</span>
+                    <!-- BỘ CAROUSEL TRÌNH CHIẾU SLIDE TƯƠNG TÁC -->
+                    <div class="bg-rose-50/60 p-4 rounded-2xl border border-rose-200 text-xs space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-rose-800" id="slide-num">Slide 1 / 3: Giới thiệu ứng dụng AI</span>
+                            <button onclick="toggleSlideMode()" id="slide-mode-btn" class="bg-rose-500 hover:bg-rose-600 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">Xem bản My tinh chỉnh ⚜️</button>
                         </div>
                         
-                        <!-- Dynamic Slider -->
-                        <input type="range" min="0" max="100" value="60" class="w-full accent-pink-500" id="contribution-slider" oninput="updateContributionDisplay(this.value)">
-                        
-                        <div id="contribution-desc" class="bg-white p-3 rounded-xl shadow-sm font-medium">
-                            Kéo thanh trượt để My bật mí tỉ lệ đóng góp của tụi mình nha!
+                        <div id="slide-content-box" class="bg-white p-4 rounded-xl shadow-sm min-h-[100px] flex flex-col justify-center border border-rose-100 transition-all duration-300">
+                            <p class="font-bold text-slate-800">Tiêu đề: Ứng dụng AI trong học tiếng Nhật</p>
+                            <ul class="list-disc pl-4 mt-2 text-slate-600 space-y-1">
+                                <li>Luyện phát âm chuẩn xác cùng trợ lý giọng nói AI.</li>
+                                <li>Tạo flashcard từ vựng tự động thông qua Anki.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-rose-500 font-bold mt-4">My đã dùng ChatGPT, Google Gemini, DALL-E và Canva AI để cùng hoàn thành dự án này.</p>
+                <p class="text-xs text-rose-500 font-bold mt-4">Sản phẩm hoàn thiện tích hợp: ChatGPT (Nội dung) - DALL-E (Hình ảnh) - Canva AI (Layout).</p>
             </div>
 
-            <!-- Bài 6: Đạo đức & Trách nhiệm AI (Vòng xoay lật 3D vô cực) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[420px]">
+            <!-- Bài 6: Đạo đức & Trách nhiệm AI (Interactive Checklist & Commitment Badge) -->
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
                 <div>
                     <div class="flex justify-between items-start">
-                        <span class="text-3xl">⚖️</span>
+                        <span class="text-3xl">🏅</span>
                         <span class="text-xs font-bold text-indigo-500 uppercase tracking-widest">Đạo đức học thuật</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 6: Sử dụng công nghệ văn minh</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Tại trường ULIS, tụi mình luôn đề cao sự trung thực. Rê chuột hoặc chạm vào thẻ để xem những nguyên tắc My luôn tự nhủ nha.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 6: Cam kết liêm chính của My</h3>
+                    <p class="text-slate-500 text-sm font-semibold mb-6">Tích chọn đầy đủ 3 cam kết học tập ở dưới để kích hoạt huy hiệu liêm chính của My nha!</p>
                     
-                    <!-- BỘ THẺ LẬT 3D VÔ CỰC -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flip-card h-28 cursor-pointer">
-                            <div class="flip-card-inner relative w-full h-full text-center">
-                                <div class="flip-card-front absolute inset-0 bg-indigo-50 rounded-2xl border border-indigo-200 flex flex-col items-center justify-center p-2">
-                                    <span class="text-xl">🤝</span>
-                                    <p class="text-xs font-bold text-indigo-800 mt-1">Sự minh bạch</p>
-                                </div>
-                                <div class="flip-card-back absolute inset-0 bg-indigo-600 text-white rounded-2xl flex items-center justify-center p-3 text-[10px] font-semibold">
-                                    My luôn ghi chú rõ ràng những phần có AI hỗ trợ tìm ý tưởng.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flip-card h-28 cursor-pointer">
-                            <div class="flip-card-inner relative w-full h-full text-center">
-                                <div class="flip-card-front absolute inset-0 bg-indigo-50 rounded-2xl border border-indigo-200 flex flex-col items-center justify-center p-2">
-                                    <span class="text-xl">🚫</span>
-                                    <p class="text-xs font-bold text-indigo-800 mt-1">Nói không với chép</p>
-                                </div>
-                                <div class="flip-card-back absolute inset-0 bg-indigo-600 text-white rounded-2xl flex items-center justify-center p-3 text-[10px] font-semibold">
-                                    Tuyệt đối không sao chép nguyên văn từ AI mà không qua suy nghĩ của bản thân.
-                                </div>
-                            </div>
-                        </div>
+                    <!-- BỘ CHECKLIST LIÊM CHÍNH TƯƠNG TÁC -->
+                    <div class="space-y-3 text-xs font-semibold">
+                        <label class="flex items-center space-x-3 bg-indigo-50 p-2.5 rounded-xl border border-indigo-100 cursor-pointer hover:bg-indigo-100/50 transition">
+                            <input type="checkbox" class="accent-indigo-600 w-4 h-4" onchange="checkCommitmentStatus()" id="commit-1">
+                            <span class="text-indigo-800">Minh bạch công khai mọi phần AI tham gia gợi ý.</span>
+                        </label>
+                        <label class="flex items-center space-x-3 bg-indigo-50 p-2.5 rounded-xl border border-indigo-100 cursor-pointer hover:bg-indigo-100/50 transition">
+                            <input type="checkbox" class="accent-indigo-600 w-4 h-4" onchange="checkCommitmentStatus()" id="commit-2">
+                            <span class="text-indigo-800">Không chép nguyên văn sản phẩm của AI để nộp.</span>
+                        </label>
+                        <label class="flex items-center space-x-3 bg-indigo-50 p-2.5 rounded-xl border border-indigo-100 cursor-pointer hover:bg-indigo-100/50 transition">
+                            <input type="checkbox" class="accent-indigo-600 w-4 h-4" onchange="checkCommitmentStatus()" id="commit-3">
+                            <span class="text-indigo-800">Luôn tự học, rèn luyện tư duy phản biện độc lập.</span>
+                        </label>
                     </div>
                 </div>
-                <p class="text-xs text-indigo-600 font-bold mt-4">Sử dụng AI có trách nhiệm chính là cách tụi mình trân trọng giá trị tri thức thực sự.</p>
+                
+                <!-- Huy hiệu chúc mừng dạng động -->
+                <div id="integrity-badge" class="mt-4 bg-indigo-100 text-indigo-800 p-3 rounded-2xl text-center text-xs font-bold border border-indigo-300 hidden animate-bounce">
+                    🌟 Chúc mừng! Bạn đã kích hoạt "Huy Hiệu Học Tập Văn Minh" của My!
+                </div>
             </div>
 
         </div>
     </section>
 
     <!-- SECTION: TỔNG KẾT & ĐÁNH GIÁ (REFLECTION) -->
-    <section id="summary" class="py-16 max-w-5xl mx-auto px-6">
+    <section id="summary" class="py-16 max-w-5xl mx-auto px-6 relative z-10">
         <div class="bento-card p-12 rounded-[40px]">
             <div class="text-center mb-12">
                 <span class="text-5xl">💝</span>
@@ -505,12 +436,110 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="mt-auto py-8 text-center text-sm font-semibold text-slate-400 bg-white/40">
+    <footer class="mt-auto py-8 text-center text-sm font-semibold text-slate-400 bg-white/40 relative z-10">
         <p>© 2026 Trần Hà My - My Cozy Space. Được thiết kế với thật nhiều tình yêu và hoa ly trôi nổi ✨</p>
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC DEMOS -->
     <script>
+        // TRÌNH GIẢ LẬP VŨ TRỤ HOA LY HỒNG TRÔI NỔI NHƯ BONG BÓNG NƯỚC (HIỆU NĂNG CAO, KHÔNG GIẬT LAG)
+        const lilyCanvas = document.getElementById('bg-lily-canvas');
+        const lilyCtx = lilyCanvas.getContext('2d');
+        let backgroundLilies = [];
+
+        function resizeLilyCanvas() {
+            lilyCanvas.width = window.innerWidth;
+            lilyCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeLilyCanvas);
+        resizeLilyCanvas();
+
+        class FloatingLilyParticle {
+            constructor(initial = false) {
+                this.reset(initial);
+            }
+
+            reset(initial = false) {
+                this.size = Math.random() * 20 + 15; // Kích cỡ hoa từ 15px đến 35px
+                this.x = Math.random() * lilyCanvas.width;
+                // Nếu khởi tạo lúc đầu thì rải ngẫu nhiên độ cao, nếu không thì xuất phát từ dưới đáy canvas
+                this.y = initial ? (Math.random() * lilyCanvas.height) : (lilyCanvas.height + this.size + Math.random() * 100);
+                this.speedY = Math.random() * 0.7 + 0.3; // Tốc độ bay lên từ từ nhẹ nhàng
+                this.swaySpeed = Math.random() * 0.015 + 0.008;
+                this.swayWidth = Math.random() * 1.5 + 0.5;
+                this.swayOffset = Math.random() * Math.PI * 2;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() * 0.006 - 0.003);
+                this.opacity = Math.random() * 0.4 + 0.15; // Độ mờ sương khói mộng mơ
+                this.fadeThreshold = lilyCanvas.height * 0.15; // Bắt đầu mờ dần ở 15% phía trên cùng
+            }
+
+            update(time) {
+                this.y -= this.speedY;
+                this.x += Math.sin(time * this.swaySpeed + this.swayOffset) * this.swayWidth;
+                this.rotation += this.rotationSpeed;
+
+                // Mờ dần khi gần bay lên tới đỉnh trang
+                if (this.y < this.fadeThreshold) {
+                    this.opacity -= 0.004;
+                }
+
+                // Hồi sinh ở đáy khi bay hết hoặc mờ hẳn
+                if (this.y < -this.size || this.opacity <= 0) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                lilyCtx.save();
+                lilyCtx.globalAlpha = this.opacity;
+                lilyCtx.translate(this.x, this.y);
+                lilyCtx.rotate(this.rotation);
+
+                // Vẽ 6 cánh hoa ly hồng xếp chồng đối xứng
+                for (let i = 0; i < 6; i++) {
+                    lilyCtx.save();
+                    lilyCtx.rotate((i * 60) * Math.PI / 180);
+                    lilyCtx.beginPath();
+                    lilyCtx.moveTo(0, 0);
+                    // Đường cong vẽ cánh hoa
+                    lilyCtx.bezierCurveTo(-this.size * 0.25, -this.size * 0.25, -this.size * 0.3, -this.size * 0.8, 0, -this.size);
+                    lilyCtx.bezierCurveTo(this.size * 0.3, -this.size * 0.8, this.size * 0.25, -this.size * 0.25, 0, 0);
+                    lilyCtx.fillStyle = "#FFC2D1"; // Màu hồng phấn hoa ly
+                    lilyCtx.strokeStyle = "#FF85A2"; // Nét vẽ hồng đậm nhạt
+                    lilyCtx.lineWidth = 0.8;
+                    lilyCtx.fill();
+                    lilyCtx.stroke();
+                    lilyCtx.restore();
+                }
+
+                // Vẽ nhụy hoa cam nổi bật ở giữa
+                lilyCtx.beginPath();
+                lilyCtx.arc(0, 0, this.size * 0.1, 0, Math.PI * 2);
+                lilyCtx.fillStyle = "#FFA500";
+                lilyCtx.fill();
+
+                lilyCtx.restore();
+            }
+        }
+
+        // Tạo sẵn 45 bông hoa ly trôi nổi trải đều toàn trang
+        for (let i = 0; i < 45; i++) {
+            backgroundLilies.push(new FloatingLilyParticle(true));
+        }
+
+        let lastTime = 0;
+        function animateLilySky(timestamp) {
+            lilyCtx.clearRect(0, 0, lilyCanvas.width, lilyCanvas.height);
+            for (let i = 0; i < backgroundLilies.length; i++) {
+                backgroundLilies[i].update(timestamp);
+                backgroundLilies[i].draw();
+            }
+            requestAnimationFrame(animateLilySky);
+        }
+        requestAnimationFrame(animateLilySky);
+
+
         // HOVER TRAIL MƯỢT MÀ, ĐÃ TẮT HOÀN TOÀN BẤM CHUỘT ĐỂ TRÁNH GIẬT LAG
         const canvas = document.getElementById('trail-canvas');
         const ctx = canvas.getContext('2d');
@@ -546,7 +575,6 @@
                 ctx.globalAlpha = this.opacity;
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
-                // Draw elegant star shapes for smooth trail
                 for (let i = 0; i < 5; i++) {
                     ctx.lineTo(this.x + Math.cos((18 + i * 72) * Math.PI / 180) * this.size,
                                this.y - Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
@@ -560,7 +588,6 @@
         }
 
         window.addEventListener('mousemove', (e) => {
-            // Spawn limited particles for high performance (60 FPS)
             if (Math.random() < 0.2) {
                 particles.push(new Particle(e.clientX, e.clientY));
             }
