@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trần Hà My Portfolio</title>
+    <title>Trần Hà My - My Cozy Space</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Quicksand (Cute, dreamy font) -->
@@ -15,7 +15,7 @@
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: #FFFDE6;
-            /* Nền sao hồng pastel mộng mơ */
+            /* Nền sao hồng pastel mộng mơ mô phỏng từ ảnh gốc */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='180' viewBox='0 0 120 180'%3E%3Cg fill='%23FFB3D1' fill-opacity='0.4'%3E%3Cpath d='M20,30 L21.5,34.5 L26,35 L21.5,35.5 L20,40 L18.5,35.5 L14,35 L18.5,34.5 Z'/%3E%3Cpath d='M80,85 L81.5,89.5 L86,90 L81.5,90.5 L80,95 L78.5,90.5 L74,90 L78.5,89.5 Z'/%3E%3Cpath d='M40,140 L41.5,144.5 L46,145 L41.5,145.5 L40,150 L38.5,145.5 L34,145 L38.5,144.5 Z'/%3E%3Cpath d='M100,10 L101.5,14.5 L106,15 L101.5,15.5 L100,20 L98.5,15.5 L94,15 L98.5,14.5 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
             color: #4A4A4A;
@@ -98,20 +98,6 @@
             transform: rotateY(180deg);
         }
 
-        /* Floating Pink Lilies Animation */
-        .floating-lily {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-            animation: floatLily 14s ease-in-out infinite alternate;
-        }
-
-        @keyframes floatLily {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            50% { transform: translate(40px, -30px) rotate(15deg) scale(1.05); }
-            100% { transform: translate(-20px, -60px) rotate(-10deg) scale(0.95); }
-        }
-
         /* Rotation Animation for Music Icon */
         @keyframes slowSpin {
             from { transform: rotate(0deg); }
@@ -160,6 +146,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-8 font-semibold text-lg">
                 <a href="#about" class="hover:text-pink-500 transition">Về mình</a>
+                <a href="#objectives" class="hover:text-pink-500 transition">Mục tiêu</a>
                 <a href="#portfolio" class="hover:text-pink-500 transition">Sản phẩm số</a>
                 <a href="#summary" class="hover:text-pink-500 transition">Đánh giá</a>
                 <a href="https://drive.google.com/drive/folders/1rkEGjYES3nOkFqLbUlTKHeqPQdbmc1Jc?usp=drive_link" 
@@ -175,6 +162,7 @@
         </div>
         <div id="mobile-menu" class="hidden mt-2 p-4 rounded-2xl bento-card flex-col space-y-4 text-center font-semibold md:hidden">
             <a href="#about" class="block hover:text-pink-500">Về mình</a>
+            <a href="#objectives" class="block hover:text-pink-500">Mục tiêu</a>
             <a href="#portfolio" class="block hover:text-pink-500">Sản phẩm số</a>
             <a href="#summary" class="block hover:text-pink-500">Đánh giá</a>
             <a href="https://drive.google.com/drive/folders/1rkEGjYES3nOkFqLbUlTKHeqPQdbmc1Jc?usp=drive_link" 
@@ -196,7 +184,7 @@
                 mình là <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">Trần Hà My</span> ✨
             </h1>
             <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-xl">
-                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng bay lượn từ dưới lên. My hi vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
+                Nơi tụi mình cùng khám phá góc học tập số ngập tràn sắc hoa ly hồng dịu dàng bay lượn từ dưới lên. My hy vọng các bạn sẽ cảm nhận được sự ấm áp, sáng tạo và trung thực học thuật qua từng sản phẩm tương tác bên dưới nha!
             </p>
             <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                 <a href="#portfolio" class="bg-gradient-to-r from-pink-300 via-rose-300 to-purple-400 hover:from-pink-400 hover:to-purple-500 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -214,11 +202,42 @@
         </div>
     </header>
 
+    <!-- SECTION: MỤC TIÊU PORTFOLIO -->
+    <section id="objectives" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="bento-card p-10 rounded-[35px] space-y-8">
+            <div class="text-center">
+                <span class="text-5xl">🎯</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-3">Mục tiêu của chiếc Portfolio này</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-pink-50/50 p-6 rounded-2xl border border-pink-100/50">
+                    <h3 class="font-bold text-pink-600 text-lg mb-2">🌸 Hệ thống hóa kiến thức số</h3>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                        Giúp My tổng hợp một cách khoa học nhất tất cả những kỹ năng số đã học được trong suốt môn học, từ thao tác quản trị tệp tin cơ bản cho đến việc làm chủ và thiết kế Prompt nâng cao.
+                    </p>
+                </div>
+                <div class="bg-purple-50/50 p-6 rounded-2xl border border-purple-100/50">
+                    <h3 class="font-bold text-purple-600 text-lg mb-2">🌟 Minh chứng năng lực thực tế</h3>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                        Lưu trữ và phô diễn các sản phẩm thực hành thực tế, chứng minh năng lực tự học tuyệt vời của bản thân trong việc phối hợp nhuần nhuyễn giữa công cụ số và tư duy sáng tạo của một sinh viên ngoại ngữ.
+                    </p>
+                </div>
+                <div class="bg-indigo-50/50 p-6 rounded-2xl border border-indigo-100/50">
+                    <h3 class="font-bold text-indigo-600 text-lg mb-2">⚖️ Bản sắc học tập văn minh</h3>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                        Khẳng định dấu ấn cá nhân trong việc ứng dụng Trí tuệ nhân tạo một cách văn minh, nghiêm túc, tuân thủ tuyệt đối chuẩn mực liêm chính học thuật của sinh viên ULIS.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- COSMIC BENTO PORTFOLIO SECTION -->
     <section id="portfolio" class="py-16 max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <span class="text-5xl">⚜️</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Góc Học Tập Nhỏ Xinh</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Vũ Trụ Sáng Tạo Tương Tác</h2>
             <p class="text-slate-500 mt-2 font-semibold">Tụi mình cùng trải nghiệm các tính năng cực kỳ sinh động trên từng thẻ bài tập nhé!</p>
             <div class="w-24 h-1 bg-pink-300 mx-auto mt-4 rounded-full mb-8"></div>
             
@@ -234,23 +253,24 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             
             <!-- Bài 1: Quản lý tệp tin (Giả lập Explorer với khả năng Đổi tên, Xoá, Phục hồi thực tế) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[400px]">
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-1">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">📂</span>
-                        <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Kỹ năng số</span>
+                        <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Kỹ năng học tập</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 1: Giả lập File Explorer</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-6">Thử click tạo mới, xóa, đổi tên tệp tin để xem cách My lưu trữ an toàn nha.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 1: Giả lập File Explorer</h3>
+                    <p class="text-pink-600 text-xs font-bold mb-3">Mục tiêu: Làm chủ cách sắp xếp hệ thống tệp tin khoa học trên máy tính.</p>
+                    <p class="text-slate-500 text-sm font-semibold mb-4">Nhấp vào các nút bên phải để thử đổi tên, xóa hoặc khôi phục tệp thô trong cây thư mục nhé.</p>
                     
                     <!-- BỘ GIẢ LẬP WINDOWS FILE EXPLORER HOÀN CHỈNH -->
-                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs font-mono border border-slate-700 space-y-3">
+                    <div class="bg-slate-900 text-slate-200 rounded-2xl p-4 text-[11px] font-mono border border-slate-700 space-y-3">
                         <div class="flex justify-between items-center pb-2 border-b border-slate-700">
                             <span class="text-slate-400">MyPC &gt; ThucHanh_TranHaMy</span>
-                            <div class="flex space-x-2">
-                                <button onclick="renameFileDemo()" class="bg-pink-600 hover:bg-pink-700 text-white px-2 py-1 rounded text-[10px]">Đổi tên</button>
-                                <button onclick="deleteFileDemo()" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-[10px]">Xóa</button>
-                                <button onclick="restoreFileDemo()" class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded text-[10px]">Phục hồi</button>
+                            <div class="flex space-x-1">
+                                <button onclick="renameFileDemo()" class="bg-pink-600 hover:bg-pink-700 text-white px-2 py-0.5 rounded text-[10px]">Đổi tên</button>
+                                <button onclick="deleteFileDemo()" class="bg-red-500 hover:bg-red-600 text-white px-2 py-0.5 rounded text-[10px]">Xóa</button>
+                                <button onclick="restoreFileDemo()" class="bg-green-500 hover:bg-green-600 text-white px-2 py-0.5 rounded text-[10px]">Phục hồi</button>
                             </div>
                         </div>
                         <div class="space-y-2">
@@ -269,24 +289,27 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-slate-400 mt-4">Kỹ năng quản trị file khoa học giúp My lưu trữ giáo trình, bài tập tiếng Nhật hoàn toàn ngăn nắp.</p>
+                <div class="mt-4">
+                    <button onclick="openModal('details-1')" class="text-pink-500 font-bold hover:underline text-sm">Xem chi tiết 12 bước thực hành & bài học của My &gt;&gt;</button>
+                </div>
             </div>
 
             <!-- Bài 2: Tìm kiếm & Đánh giá thông tin (Biểu đồ năng lực nguồn tài liệu) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[400px]">
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-2">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">📊</span>
                         <span class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Nghiên cứu học thuật</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 2: Thước đo độ tin cậy</h3>
-                    <p class="text-slate-500 text-sm font-semibold mb-4">Click vào các bài báo học thuật để kiểm tra xem điểm số độ tin cậy thay đổi như thế nào nhé.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 2: Thước đo độ tin cậy</h3>
+                    <p class="text-emerald-600 text-xs font-bold mb-3">Mục tiêu: Đánh giá độ tin cậy của tài liệu khoa học phục vụ nghiên cứu.</p>
+                    <p class="text-slate-500 text-sm font-semibold mb-4">Click vào các tài liệu đại diện bên dưới để kiểm tra xem điểm số độ tin cậy thay đổi ra sao nha.</p>
                     
                     <!-- BỘ SO SÁNH BIỂU ĐỒ BẰNG SVG & CSS DYNAMIC BARS -->
                     <div class="grid grid-cols-3 gap-2 mb-4">
-                        <button onclick="updateRadarChart('scholarly')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Holmes (2019)</button>
-                        <button onclick="updateRadarChart('open')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">UNESCO (2021)</button>
-                        <button onclick="updateRadarChart('blog')" class="chart-btn py-1 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Blog MIT</button>
+                        <button onclick="updateRadarChart('scholarly')" class="chart-btn py-1.5 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Holmes (2019)</button>
+                        <button onclick="updateRadarChart('open')" class="chart-btn py-1.5 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">UNESCO (2021)</button>
+                        <button onclick="updateRadarChart('blog')" class="chart-btn py-1.5 px-2 text-center bg-emerald-50 hover:bg-emerald-100 rounded-xl text-[10px] font-bold border border-emerald-200 transition">Blog MIT</button>
                     </div>
 
                     <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200 text-xs space-y-3">
@@ -307,17 +330,20 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-emerald-600 mt-4 font-bold">My luôn nói không với tài liệu không rõ nguồn gốc để duy trì bài viết chất lượng.</p>
+                <div class="mt-4">
+                    <button onclick="openModal('details-2')" class="text-emerald-600 font-bold hover:underline text-sm">Xem đầy đủ 10 bài báo học thuật & bài học học vụ &gt;&gt;</button>
+                </div>
             </div>
 
             <!-- Bài 3: Thiết kế Prompt hiệu quả (Giả lập Prompt Playground kèm Game mini Quiz) -->
-            <div class="bento-card md:col-span-7 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+            <div class="bento-card md:col-span-7 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-3">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">💬</span>
                         <span class="text-xs font-bold text-purple-500 uppercase tracking-widest">Kỹ thuật AI</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 3: Trình tạo câu hỏi tương tác</h3>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 3: Trình tạo câu hỏi tương tác</h3>
+                    <p class="text-purple-600 text-xs font-bold mb-3">Mục tiêu: Thiết kế prompt 3 cấp độ để làm chủ sức mạnh của mô hình ngôn ngữ AI.</p>
                     <p class="text-slate-500 text-sm font-semibold mb-6">Nạp prompt "Nâng cao" để AI tạo bộ câu hỏi triết học thực tế và thử chọn đáp án đúng xem sao nha!</p>
                     
                     <div class="flex space-x-2 mb-4">
@@ -337,17 +363,20 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-purple-600 font-bold mt-4">Kỹ năng viết prompt chuẩn chỉnh giúp My tự sinh đề ôn tập tiếng Nhật cực kỳ nhịp nhàng.</p>
+                <div class="mt-4">
+                    <button onclick="openModal('details-3')" class="text-purple-600 font-bold hover:underline text-sm">Xem tất cả các Prompt so sánh chi tiết của My &gt;&gt;</button>
+                </div>
             </div>
 
             <!-- Bài 4: Hợp tác trực tuyến (Kanban Trello & Live Edit Simulation) -->
-            <div class="bento-card md:col-span-5 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+            <div class="bento-card md:col-span-5 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-4">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">👥</span>
                         <span class="text-xs font-bold text-yellow-600 uppercase tracking-widest">Cộng tác trực tuyến</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 4: Viết bài chung thời gian thực</h3>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 4: Viết báo cáo nhóm thời gian thực</h3>
+                    <p class="text-yellow-600 text-xs font-bold mb-3">Mục tiêu: Ứng dụng các công cụ cộng tác trực tuyến để tối ưu hiệu suất làm việc nhóm.</p>
                     <p class="text-slate-500 text-sm font-semibold mb-6">Mô phỏng chỉnh sửa đồng thời của nhóm 28 trên Google Docs. Xem các con trỏ đang soạn thảo nhé!</p>
                     
                     <!-- MÔ PHỎNG GOOGLE DOCS LIVE-EDITING -->
@@ -369,23 +398,26 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-slate-400 mt-4">Hợp tác trực tuyến qua Google Drive, Google Meet và Docs giúp bài thảo luận nhóm luôn nhất quán.</p>
+                <div class="mt-4">
+                    <button onclick="openModal('details-4')" class="text-yellow-600 font-bold hover:underline text-sm">Xem chi tiết vai trò của My & cấu trúc Google Drive &gt;&gt;</button>
+                </div>
             </div>
 
             <!-- Bài 5: Sử dụng AI sáng tạo nội dung (Slide Deck Carousel & Custom Toggle) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-5">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">🎠</span>
                         <span class="text-xs font-bold text-rose-500 uppercase tracking-widest">Sáng tạo nội dung</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 5: Trình chiếu Slide tiếng Nhật</h3>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 5: Trình chiếu Slide tiếng Nhật</h3>
+                    <p class="text-rose-500 text-xs font-bold mb-3">Mục tiêu: Tích hợp nhiều công cụ AI vào quy trình sáng tạo bài trình bày khoa học.</p>
                     <p class="text-slate-500 text-sm font-semibold mb-4">Click nút để gạt so sánh giữa phác thảo thô của AI và bản hoàn thiện mộng mơ của My nha.</p>
                     
                     <!-- BỘ CAROUSEL TRÌNH CHIẾU SLIDE TƯƠNG TÁC -->
                     <div class="bg-rose-50/60 p-4 rounded-2xl border border-rose-200 text-xs space-y-3">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold text-rose-800" id="slide-num">Slide 1 / 3: Giới thiệu ứng dụng AI</span>
+                            <span class="font-bold text-rose-800" id="slide-num">Slide 1: Giới thiệu ứng dụng AI học tiếng Nhật</span>
                             <button onclick="toggleSlideMode()" id="slide-mode-btn" class="bg-rose-500 hover:bg-rose-600 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">Xem bản My tinh chỉnh ⚜️</button>
                         </div>
                         
@@ -398,17 +430,20 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-rose-500 font-bold mt-4">Sản phẩm hoàn thiện tích hợp: ChatGPT (Nội dung) - DALL-E (Hình ảnh) - Canva AI (Layout).</p>
+                <div class="mt-4">
+                    <button onclick="openModal('details-5')" class="text-rose-600 font-bold hover:underline text-sm">Xem cấu trúc 10 Slide & quy trình kết hợp AI &gt;&gt;</button>
+                </div>
             </div>
 
             <!-- Bài 6: Đạo đức & Trách nhiệm AI (Interactive Checklist & Commitment Badge) -->
-            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]">
+            <div class="bento-card md:col-span-6 p-8 rounded-3xl flex flex-col justify-between min-h-[440px]" id="bento-6">
                 <div>
                     <div class="flex justify-between items-start">
                         <span class="text-3xl">🏅</span>
                         <span class="text-xs font-bold text-indigo-500 uppercase tracking-widest">Đạo đức học thuật</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Bài 6: Cam kết liêm chính của My</h3>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-1">Bài 6: Cam kết liêm chính của My</h3>
+                    <p class="text-indigo-500 text-xs font-bold mb-3">Mục tiêu: Đảm bảo sử dụng AI có đạo đức, liêm chính tại môi trường ULIS.</p>
                     <p class="text-slate-500 text-sm font-semibold mb-6">Tích chọn đầy đủ 3 cam kết học tập ở dưới để kích hoạt huy hiệu liêm chính của My nha!</p>
                     
                     <!-- BỘ CHECKLIST LIÊM CHÍNH TƯƠNG TÁC -->
@@ -432,36 +467,48 @@
                 <div id="integrity-badge" class="mt-4 bg-indigo-100 text-indigo-800 p-3 rounded-2xl text-center text-xs font-bold border border-indigo-300 hidden animate-bounce">
                     🌟 Chúc mừng! Bạn đã kích hoạt "Huy Hiệu Học Tập Văn Minh" của My!
                 </div>
+                <div class="mt-4">
+                    <button onclick="openModal('details-6')" class="text-indigo-600 font-bold hover:underline text-sm font-semibold">Phân tích bài luận đạo đức & sơ đồ nên/không nên làm &gt;&gt;</button>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- SECTION: TỔNG KẾT & ĐÁNH GIÁ (REFLECTION) -->
-    <section id="summary" class="py-16 max-w-5xl mx-auto px-6">
-        <div class="bento-card p-12 rounded-[40px]">
-            <div class="text-center mb-12">
+    <!-- SECTION: TỔNG KẾT KHÓ KHĂN THUẬN LỢI BÀI HỌC -->
+    <section id="summary" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="bento-card p-12 rounded-[40px] space-y-12">
+            <div class="text-center">
                 <span class="text-5xl">💝</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Đôi lời nhắn gửi từ My</h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mt-3">Nhìn lại hành trình học tập số của My</h2>
                 <div class="w-16 h-1 bg-pink-300 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-medium text-slate-700 leading-relaxed text-sm">
-                <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-medium text-slate-700 leading-relaxed text-sm">
+                <div class="space-y-4 bg-pink-50/30 p-6 rounded-3xl border border-pink-100">
                     <h3 class="text-lg font-bold text-pink-500 flex items-center gap-2">
-                        <i class="fas fa-heart"></i> Niềm vui từ những điều nhỏ bé
+                        <i class="fas fa-smile-beam"></i> Thuận lợi
                     </h3>
-                    <p>
-                        Từ những bước làm quen với cách sắp xếp hệ thống tệp gọn gàng, cho đến việc tự thiết kế các prompt sâu sắc, hành trình công nghệ số này đã cho My rất nhiều trải nghiệm quý giá. Việc chủ động ứng dụng công nghệ giúp mình tự tin hơn hẳn khi học tập và kết nối số hằng ngày.
+                    <p class="text-slate-600">
+                        My may mắn được học tập trong môi trường ULIS năng động và cực kỳ cởi mở với công nghệ số. Bọn mình được các thầy cô tận tình định hướng từng bước. Bản thân My cũng rất say mê học hỏi, luôn tò mò muốn làm chủ các công cụ hỗ trợ để tìm kiếm các phương pháp tự học ngôn ngữ hiện đại, hiệu quả và nhịp nhàng nhất.
                     </p>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 bg-purple-50/30 p-6 rounded-3xl border border-purple-100">
                     <h3 class="text-lg font-bold text-purple-500 flex items-center gap-2">
-                        <i class="fas fa-magic"></i> Độc bản trong kỷ nguyên số
+                        <i class="fas fa-heart-broken"></i> Khó khăn
                     </h3>
-                    <p>
-                        Công nghệ sẽ ngày càng phát triển, nhưng My tin rằng tư duy sắc bén, sự nhạy cảm ngôn ngữ và nỗ lực chân chính của tụi mình mới là điều làm nên sản phẩm độc bản. Cảm ơn các bạn thật nhiều vì đã ghé qua góc nhỏ lưu trữ của My nhé!
+                    <p class="text-slate-600">
+                        Vạn sự khởi đầu nan, thời gian đầu My cũng hay bị choáng ngợp trước lượng thông tin và câu trả lời đa dạng của AI. Việc thử nghiệm prompt 3 cấp độ đòi hỏi My phải liên tục điều chỉnh nhiều lần để có được kết quả ưng ý. Khi làm việc nhóm online, đôi lúc cả nhóm cũng gặp khó khăn vì quên cập nhật tiến độ công việc chung trên Trello.
+                    </p>
+                </div>
+
+                <div class="space-y-4 bg-indigo-50/30 p-6 rounded-3xl border border-indigo-100">
+                    <h3 class="text-lg font-bold text-indigo-500 flex items-center gap-2">
+                        <i class="fas fa-graduation-cap"></i> Bài học rút ra
+                    </h3>
+                    <p class="text-slate-600">
+                        AI thực sự là một trợ lý đắc lực giúp My tiết kiệm đến 70% thời gian chuẩn bị bài thuyết trình, nhưng con người mới là yếu tố quyết định chất lượng cuối cùng. My hiểu ra rằng, chìa khóa thành công trong thời đại số nằm ở sự phối hợp thông minh: ứng dụng AI để khơi mở ý tưởng, đồng thời luôn giữ vững sự liêm chính học thuật chân thực.
                     </p>
                 </div>
             </div>
@@ -470,10 +517,259 @@
 
     <!-- FOOTER -->
     <footer class="mt-auto py-8 text-center text-sm font-semibold text-slate-400 bg-white/40">
-        <p>© 2026 Trần Hà My Portfolio. Được thiết kế với thật nhiều tình yêu ✨</p>
+        <p>© 2026 Trần Hà My - My Cozy Space. Được thiết kế với thật nhiều tình yêu và hoa ly trôi nổi ✨</p>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT FOR DYNAMIC DEMOS -->
+    <!-- IMERSIVE DETAILS MODALS (CHI TIẾT 100% KHÔNG CẮT BỚT NỘI DUNG) -->
+    
+    <!-- Modal Bài 1 -->
+    <div id="modal-details-1" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-1')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-pink-500 flex items-center gap-2">
+                    <i class="fas fa-folder-open"></i> Bài 1: Chi tiết 12 bước thực hành quản lý tệp tin khoa học
+                </h3>
+                <div class="bg-pink-50/50 p-4 rounded-xl border border-pink-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Thành thạo mọi thao tác tệp tin trên Windows Explorer, rèn luyện tư duy sắp xếp dữ liệu có hệ thống, quy chuẩn đặt tên rõ ràng phục vụ học tập lâu dài.
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs space-y-1">
+                    <div class="space-y-3">
+                        <p><strong>Bước 1: Mở File Explorer:</strong> Nhấn tổ hợp phím <kbd class="bg-slate-100 px-1 rounded border">Windows + E</kbd> hoặc click vào biểu tượng thư mục màu vàng trên thanh Taskbar.</p>
+                        <p><strong>Bước 2: Truy cập ổ đĩa/thư mục:</strong> Ở cột bên trái, click vào This PC, chọn ổ đĩa ngoài ổ hệ thống (như ổ D: hoặc E:) để không can thiệp vào tệp hệ thống. Nếu chỉ có ổ C:, My di chuyển vào thư mục Documents.</p>
+                        <p><strong>Bước 3: Tạo thư mục mới:</strong> Click chuột phải vào khoảng trống, chọn New -> Folder. Đặt tên thư mục theo đúng cấu trúc <code class="bg-slate-100 px-1">ThucHanh_TranHaMy</code> và nhấn Enter.</p>
+                        <p><strong>Bước 4: Vào thư mục vừa tạo:</strong> Nhấp đúp chuột trái vào thư mục vừa tạo để tiến hành các thao tác bên trong.</p>
+                        <p><strong>Bước 5: Tạo tệp tin văn bản:</strong> Click chuột phải vào khoảng trống, chọn New -> Text Document để tạo tệp tin ghi chú nháp.</p>
+                        <p><strong>Bước 6: Đổi tên tệp tin:</strong> Click chuột phải vào tệp tin mới tạo, chọn Rename (hoặc nhấn phím F2). Chuẩn hóa tên tệp thành <code class="bg-slate-100 px-1">GhiChuQuanTrong.txt</code>.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <p><strong>Bước 7: Tạo thư mục con:</strong> Click chuột phải -> New -> Folder, đặt tên là <code class="bg-slate-100 px-1">TaiLieu</code> để tạo phân cấp thư mục nhiều cấp.</p>
+                        <p><strong>Bước 8: Sao chép tệp tin (Copy):</strong> Click chuột phải vào <code class="bg-slate-100 px-1">GhiChuQuanTrong.txt</code>, chọn Copy (Ctrl+C). Vào thư mục <code class="bg-slate-100 px-1">TaiLieu</code>, chuột phải chọn Paste (Ctrl+V).</p>
+                        <p><strong>Bước 9: Di chuyển tệp tin (Cut):</strong> Quay lại thư mục gốc, tạo tệp <code class="bg-slate-100 px-1">DiChuyen.txt</code>. Chuột phải chọn Cut (Ctrl+X). Vào thư mục <code class="bg-slate-100 px-1">TaiLieu</code> chọn Paste (Ctrl+V) để di chuyển tệp hoàn toàn.</p>
+                        <p><strong>Bước 10: Xóa tệp tin (Delete):</strong> Click chuột phải vào tệp tin cần xóa, chọn Delete để đưa tệp tin vào Thùng rác (Recycle Bin).</p>
+                        <p><strong>Bước 11: Xóa vĩnh viễn:</strong> Chọn tệp cần xóa vĩnh viễn, nhấn giữ phím <kbd class="bg-slate-100 px-1 rounded border">Shift + Delete</kbd> để giải phóng ổ cứng mà không qua Thùng rác.</p>
+                        <p><strong>Bước 12: Khôi phục từ Thùng rác:</strong> Nhấp đúp vào Recycle Bin ngoài Desktop, tìm tệp tin vừa xóa ở bước 10, chuột phải chọn Restore để đưa tệp về vị trí ban đầu.</p>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Việc duy trì sơ đồ lưu trữ nhiều cấp giúp My tiết kiệm 50% thời gian tìm kiếm giáo trình và tệp thuyết trình tiếng Nhật khi bước vào mùa thi cử bận rộn.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bài 2 -->
+    <div id="modal-details-2" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-2')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-emerald-600 flex items-center gap-2">
+                    <i class="fas fa-microscope"></i> Bài 2: Đánh giá chi tiết 10 nguồn tài liệu khoa học của My
+                </h3>
+                <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Biết cách khai thác cơ sở dữ liệu số bằng từ khóa nâng cao, thiết lập tiêu chí đánh giá độ tin cậy khắt khe đối với từng tài liệu học thuật thu thập được.
+                </div>
+                <div class="text-xs space-y-4">
+                    <p class="font-bold text-slate-700">My đã tìm hiểu sâu chủ đề "Ứng dụng trí tuệ nhân tạo trong giáo dục đại học" dựa trên 10 nguồn chính thống:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <p><strong>1. Holmes, W. et al. (2019):</strong> Sách chuyên khảo nghiên cứu các cấu trúc AI trong giáo dục. Tác giả học hàm cao, nhà xuất bản Center for Curriculum Redesign cực kỳ uy tín. Đánh giá: 5 sao.</p>
+                            <p><strong>2. Zawacki-Richter, O. et al. (2019):</strong> Bài báo tổng thuật hệ thống trên tạp chí khoa học quốc tế International Journal of Educational Technology. Đánh giá: 5 sao.</p>
+                            <p><strong>3. Chen, L. et al. (2020):</strong> Nghiên cứu ứng dụng thực nghiệm AI được công bố trên IEEE Access với lượng trích dẫn rất lớn. Đánh giá: 5 sao.</p>
+                            <p><strong>4. Luckin, R. (2018):</strong> Sách nghiên cứu sâu sắc về Machine Learning và trí tuệ con người từ NXB UCL Press. Đánh giá: 4 sao.</p>
+                            <p><strong>5. Baker, R.S. & Inventado, P.S. (2019):</strong> Bài viết chuyên môn sâu về lĩnh vực khai thác dữ liệu giáo dục trong cuốn Handbook of Learning Analytics. Đánh giá: 4 sao.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p><strong>6. Artificial Intelligence in Education:</strong> Giáo trình chuyên sâu của NXB học thuật danh tiếng Springer hỗ trợ hệ thống lý thuyết. Đánh giá: 4 sao.</p>
+                            <p><strong>7. Handbook of AI in Education:</strong> Tài liệu hướng dẫn thực hành đa góc nhìn về giáo dục số từ Springer. Đánh giá: 4 sao.</p>
+                            <p><strong>8. UNESCO Report (2021):</strong> Báo cáo chính thống, toàn diện của UNESCO chỉ dẫn chính sách AI cho các nhà hoạch định giáo dục toàn cầu. Đánh giá: 5 sao.</p>
+                            <p><strong>9. OECD Education AI Report (2021):</strong> Khảo sát dữ liệu thực tế đáng tin cậy về tác động của AI đối với sinh viên toàn cầu. Đánh giá: 5 sao.</p>
+                            <p><strong>10. Blog nghiên cứu Đại học MIT:</strong> Trang tin mở chia sẻ nhanh các ý kiến thảo luận, góc nhìn công nghệ mới mẻ của các nghiên cứu sinh nhưng chưa qua phản biện ngang hàng. Đánh giá: 2 sao (chỉ dùng tham khảo ý tưởng nền).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Bài tập này rèn luyện cho My óc phản biện sắc bén, biết cách phân biệt các bài viết blog thông thường với các công trình nghiên cứu chuẩn mực, giúp bài viết học thuật của My luôn chắc chắn về cơ sở khoa học.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bài 3 -->
+    <div id="modal-details-3" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-3')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-purple-500 flex items-center gap-2">
+                    <i class="fas fa-code"></i> Bài 3: Chi tiết các Prompt 3 cấp độ My thiết kế
+                </h3>
+                <div class="bg-purple-50/50 p-4 rounded-xl border border-purple-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Hiểu rõ và ứng dụng thuần thục các kỹ thuật Prompt Engineering (Role prompting, Structured Prompt, Few-shot, Context Prompting) để tối ưu hóa kết quả đầu ra của các mô hình AI.
+                </div>
+                <div class="text-xs space-y-4">
+                    <div>
+                        <h4 class="font-bold text-pink-600 mb-1">Tác vụ 1: Tóm tắt tài liệu học thuật</h4>
+                        <p><strong>Prompt Cơ bản:</strong> "Hãy tóm tắt bài viết này."</p>
+                        <p><strong>Prompt Cải tiến:</strong> "Hãy tóm tắt bài viết sau trong khoảng vài trăm chữ. Trình bày các ý chính theo dạng câu chủ đề và nội dung của bài viết."</p>
+                        <p><strong>Prompt Nâng cao:</strong> "Bạn là một giảng viên đại học chuyên hướng dẫn sinh viên đọc tài liệu học thuật. Hãy đọc bài viết sau và: 1. Tóm tắt nội dung trong 200 từ. 2. Xác định luận điểm chính. 3. Liệt kê 3 luận cứ quan trọng hỗ trợ luận điểm. 4. Giải thích ý nghĩa học thuật của bài viết. Hãy sử dụng ngôn ngữ dễ hiểu cho sinh viên năm nhất."</p>
+                    </div>
+                    <hr class="border-purple-100">
+                    <div>
+                        <h4 class="font-bold text-purple-600 mb-1">Tác vụ 2: Giải thích khái niệm phức tạp (Triết học)</h4>
+                        <p><strong>Prompt Cơ bản:</strong> "Giải thích khái niệm Triết học."</p>
+                        <p><strong>Prompt Cải tiến:</strong> "Hãy giải thích khái niệm Triết học bằng ngôn ngữ đơn giản và có ví dụ minh họa thực tế."</p>
+                        <p><strong>Prompt Nâng cao:</strong> "Bạn là giáo viên giàu kinh nghiệm. Hãy giải thích khái niệm Triết học theo các bước: 1. Định nghĩa ngắn gọn. 2. Giải thích nguyên lý hoạt động. 3. Đưa ra ví dụ thực tế trong đời sống. 4. So sánh Machine Learning với lập trình truyền thống. 5. Đặt 2 câu hỏi kiểm tra mức độ hiểu bài. Hãy trình bày theo phong cách dễ hiểu, sinh động và phù hợp cho người mới bắt đầu."</p>
+                    </div>
+                    <hr class="border-purple-100">
+                    <div>
+                        <h4 class="font-bold text-indigo-600 mb-1">Tác vụ 3: Tạo bộ câu hỏi ôn tập chủ đề</h4>
+                        <p><strong>Prompt Cơ bản:</strong> "Tạo câu hỏi ôn tập về Triết học."</p>
+                        <p><strong>Prompt Cải tiến:</strong> "Hãy tạo 10 câu hỏi trắc nghiệm về chủ đề Triết học, kèm đáp án."</p>
+                        <p><strong>Prompt Nâng cao:</strong> "Bạn là giáo viên Triết học. Hãy tạo bộ câu hỏi ôn tập về chủ đề Triết học gồm: • 5 câu trắc nghiệm dễ, • 3 câu vận dụng, • 2 câu tự luận. Yêu cầu: • Có đáp án chi tiết, • Giải thích ngắn gọn cho mỗi đáp án, • Phân loại mức độ khó, • Nội dung bám sát chương trình."</p>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Cách đặt câu hỏi quyết định hoàn toàn câu trả lời của AI. Thay vì đặt câu hỏi mơ hồ khiến AI trả lời lan man, việc chỉ định vai trò cụ thể và chia nhỏ các bước thực hiện giúp My nhận được những phản hồi chính xác đến kinh ngạc.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bài 4 -->
+    <div id="modal-details-4" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-4')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-yellow-600 flex items-center gap-2">
+                    <i class="fas fa-hands-helping"></i> Bài 4: Cách nhóm 28 phối hợp và quản lý dữ liệu trên Google Drive
+                </h3>
+                <div class="bg-yellow-50/50 p-4 rounded-xl border border-yellow-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Biết cách phối hợp hiệu quả trong nhóm bằng các công cụ cộng tác đám mây, xây dựng quy tắc đặt tên tệp tin thống nhất và sơ đồ lưu trữ tập trung ngăn nắp.
+                </div>
+                <div class="text-xs space-y-4">
+                    <p>Trong dự án nhỏ với chủ đề <strong>"Tìm hiểu tác động của trí tuệ nhân tạo đối với học tập của sinh viên"</strong>, My đảm nhận vai trò quản lý tiến độ, thu thập tài liệu tham khảo và hỗ trợ hoàn thiện báo cáo.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <p class="font-bold text-slate-800">1. Sơ đồ lưu trữ Google Drive của My:</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li><strong>Thư mục gốc:</strong> Dự án AI & Học tập sinh viên</li>
+                                <li class="pl-4">📂 01_Tài liệu tham khảo (Chứa các bài nghiên cứu học thuật)</li>
+                                <li class="pl-4">📂 02_Câu hỏi khảo sát (Bản phác thảo bộ câu hỏi online)</li>
+                                <li class="pl-4">📂 03_Kết quả khảo sát (Dữ liệu thô thu thập được từ Google Forms)</li>
+                                <li class="pl-4">📂 04_Báo cáo (Nơi lưu các phiên bản báo cáo nhóm)</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="font-bold text-slate-800">2. Quy tắc đặt tên tệp tin của nhóm 28:</p>
+                            <p>Mọi thành viên đều tuân thủ cấu trúc đặt tên: <code class="bg-slate-100 px-1 font-mono">YYMMDD_NoiDung_PhiênBản</code></p>
+                            <p class="text-slate-500">Ví dụ cụ thể:</p>
+                            <ul class="list-disc pl-4 space-y-1 text-slate-500">
+                                <li><code class="bg-slate-100 px-1 font-mono">20260520_BaoCao_V1.docx</code></li>
+                                <li><code class="bg-slate-100 px-1 font-mono">20260522_TailieuTongHop_V2.docx</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Làm việc nhóm không thể thiếu kỷ luật công nghệ số. Sử dụng Trello để cập nhật tiến độ cuối mỗi ngày và Google Docs chỉnh sửa đồng thời đã giúp nhóm 28 của My hoàn thành xuất sắc bài tập mà không hề xảy ra tình trạng xung đột dữ liệu hay thất lạc tệp tin.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bài 5 -->
+    <div id="modal-details-5" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-5')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-rose-500 flex items-center gap-2">
+                    <i class="fas fa-lightbulb"></i> Bài 5: Tích hợp chuỗi AI tạo bài thuyết trình 10 slide của My
+                </h3>
+                <div class="bg-rose-50/50 p-4 rounded-xl border border-rose-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Biết cách phối hợp chuỗi các công cụ AI khác nhau (Multi-AI Workflow) nhằm gia tăng 70% hiệu suất thiết kế nội dung nhưng vẫn đảm bảo tính cá nhân hóa quyết định chất lượng cuối cùng.
+                </div>
+                <div class="text-xs space-y-4">
+                    <p class="font-bold text-slate-700">Chủ đề bài thuyết trình: "Ứng dụng Trí tuệ nhân tạo trong học tiếng Nhật dành cho sinh viên đại học".</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <p class="font-bold text-pink-600">1. Chuỗi quy trình kết hợp AI:</p>
+                            <p>• <strong>ChatGPT:</strong> My nạp Prompt đóng vai giảng viên tiếng Nhật để phác thảo cấu trúc nội dung 10 slide bài bản, phân chia các khía cạnh từ từ vựng, ngữ pháp đến nghe/nói.</p>
+                            <p>• <strong>Google Gemini:</strong> Bổ sung các ví dụ thực tế sống động (Ví dụ: tạo bối cảnh hội thoại nhập vai bác sĩ người Nhật tại Tokyo; phân tích cách phân biệt các từ đồng nghĩa dễ gây nhầm lẫn).</p>
+                            <p>• <strong>DALL-E:</strong> Tạo hình minh họa phong cách hoạt họa hiện đại về một sinh viên học tiếng Nhật bằng laptop và điện thoại bên kệ sách giáo trình.</p>
+                            <p>• <strong>Canva AI:</strong> Đề xuất bố cục, màu sắc và tự động dàn trang slide nhanh chóng chuyên nghiệp.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="font-bold text-purple-600">2. Đóng góp sáng tạo cá nhân của My (60%):</p>
+                            <p>AI mang lại phác thảo rất nhanh nhưng sản phẩm cuối cùng là kết quả My tự biên soạn:</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Lựa chọn chủ đề sát sườn với chuyên ngành ngôn ngữ.</li>
+                                <li>Sửa đổi các thuật ngữ tiếng Nhật và chữ Kanji chưa chuẩn xác của AI.</li>
+                                <li>Tự tay chỉnh sửa bố cục màu sắc slide và bổ sung các biểu tượng văn hóa đặc trưng của Nhật Bản để slide mang tính cá nhân cao hơn.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Công cụ số chỉ đóng vai trò hỗ trợ đắc lực gợi ý ý tưởng, con người vẫn luôn là yếu tố quyết định chất lượng cuối cùng. Sự kết hợp giữa khả năng xử lý nhanh của AI và tư duy sáng tạo tinh tế của My mới tạo nên một sản phẩm có giá trị thực sự.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bài 6 -->
+    <div id="modal-details-6" class="fixed inset-0 z-50 overflow-y-auto hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white/95 rounded-3xl max-w-4xl w-full p-8 shadow-2xl relative border-2 border-pink-200 font-medium">
+            <button onclick="closeModal('details-6')" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl focus:outline-none"><i class="fas fa-times"></i></button>
+            <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-4">
+                <h3 class="text-2xl font-bold text-indigo-600 flex items-center gap-2">
+                    <i class="fas fa-shield-alt"></i> Bài 6: Bài luận học vụ và Sơ đồ chỉ dẫn đạo đức công nghệ
+                </h3>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>🎯 Mục tiêu bài học:</strong> Thấu hiểu sâu sắc các khía cạnh đạo đức của trí tuệ nhân tạo, biết tự phân tích và xây dựng cho bản thân bộ nguyên tắc ứng xử học thuật văn minh, liêm chính.
+                </div>
+                <div class="text-xs space-y-4">
+                    <div class="space-y-2">
+                        <p class="font-bold text-slate-800">1. Bài luận của My và Cam kết Minh Bạch:</p>
+                        <p>My thực hành viết một bài luận ngắn bằng tiếng Anh với chủ đề: *"The Impact of Artificial Intelligence on Language Learning"*. Để đảm bảo trung thực học thuật, My đã chủ động thêm một **Ghi chú công khai** rõ ràng ở cuối bài:</p>
+                        <p class="bg-indigo-50 p-3 rounded-lg font-semibold text-indigo-800 italic">
+                            "Bài tập này có sử dụng ChatGPT để hỗ trợ xây dựng dàn ý, gợi ý ý tưởng và rà soát lỗi ngôn ngữ. Tất cả nội dung cuối cùng đã được người học trực tiếp kiểm tra, tự biên soạn lại bằng văn phong của mình và chịu trách nhiệm hoàn toàn."
+                        </p>
+                    </div>
+                    <hr class="border-indigo-100">
+                    <div class="space-y-2">
+                        <p class="font-bold text-slate-800">2. Sơ đồ chỉ dẫn đạo đức học vụ khi dùng AI:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                                <p class="font-bold text-emerald-800 mb-1">👍 NÊN LÀM:</p>
+                                <ul class="list-disc pl-4 space-y-0.5 text-emerald-700">
+                                    <li>Tìm kiếm và khơi mở ý tưởng sáng tạo.</li>
+                                    <li>Hỗ trợ lập dàn ý, cấu trúc bài báo cáo.</li>
+                                    <li>Tóm tắt các tài liệu học thuật dài hơi.</li>
+                                    <li>Hỗ trợ sửa lỗi ngữ pháp, nâng cao vốn ngoại ngữ.</li>
+                                    <li>Hỗ trợ định hướng và gợi ý phương pháp nghiên cứu.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                                <p class="font-bold text-red-800 mb-1">👎 KHÔNG NÊN LÀM:</p>
+                                <ul class="list-disc pl-4 space-y-0.5 text-red-700">
+                                    <li>Sao chép nguyên văn tất cả các phản hồi từ AI.</li>
+                                    <li>Nộp tệp tin do AI viết hoàn toàn mà không tự chỉnh sửa.</li>
+                                    <li>Che giấu việc sử dụng công cụ AI khi làm bài tập.</li>
+                                    <li>Tạo dữ liệu giả mạo từ AI để đưa vào báo cáo nghiên cứu.</li>
+                                    <li>Lạm dụng AI trong các bài thi, bài kiểm tra bị cấm hỗ trợ.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 text-sm">
+                    <strong>💡 Bài học của My:</strong> Giá trị của giáo dục đại học nằm ở quá trình rèn luyện tư duy bền bỉ của người học. Việc ứng dụng AI văn minh, minh bạch giúp My tự hào về năng lực thực chất của mình.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR DYNAMIC DEMOS -->
     <script>
         const canvas = document.getElementById('trail-canvas');
         const ctx = canvas.getContext('2d');
@@ -835,6 +1131,31 @@
                 badge.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');
+            }
+        }
+
+        // Đóng/Mở Modal Xem Chi Tiết Bài Tập
+        function openModal(modalId) {
+            const modal = document.getElementById(`modal-${modalId}`);
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Ngăn cuộn trang phía sau
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(`modal-${modalId}`);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Trả lại chế độ cuộn
+            }
+        }
+
+        // Đóng modal khi click ra ngoài vùng trắng
+        window.onclick = function(event) {
+            if (event.target.id.startsWith('modal-')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
             }
         }
 
